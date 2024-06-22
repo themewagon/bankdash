@@ -1,8 +1,9 @@
-import { Box, IconButton, InputBase } from '@mui/material';
+import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
+import IconifyIcon from 'components/base/IconifyIcon';
 import { useState } from 'react';
 
 function SearchInput() {
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState('');
 
   return (
     <Box
@@ -10,47 +11,36 @@ function SearchInput() {
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
-        borderRadius: '50px',
-        backgroundColor: 'background.light',
-        '&:focus-within': {
-          backgroundColor: 'background.default',
-        },
-        width: '100%',
-        height: '50px',
+        width: 1,
       }}
     >
-      <InputBase
+      <TextField
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Search for something"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <IconButton type="submit">
+                <IconifyIcon icon="mingcute:search-line" color="text.secondary" />
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+        variant="filled"
         sx={{
-          width: '100%',
-          height: '100%',
-          borderRadius: 'inherit',
-          pl: '56px',
-          pr: 1,
-          py: 1,
-          color: 'text.primary',
+          //   display: { xs: 'none', md: 'block' },
+          //   width: '100%',
+          //   height: '100%',
+          '& .MuiFilledInput-root': { borderRadius: 40 },
+          //   pl: '56px',
+          //   pr: 1,
+          //   py: 1,
           '&::placeholder': {
             color: 'text.secondary',
           },
         }}
-        placeholder="Search for something"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
       />
-      <IconButton
-        type="submit"
-        sx={{
-          position: 'absolute',
-          left: 0,
-          height: '100%',
-          width: '56px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'text.primary',
-        }}
-      >
-        {/* <SearchIcon /> */}x
-      </IconButton>
     </Box>
   );
 }

@@ -16,7 +16,8 @@
     "@mui/material": "^5.15.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "simplebar-react": "^3.2.6"
   },
   "devDependencies": {
     "@iconify/react": "^5.0.1",

@@ -15,7 +15,8 @@ const typography: TypographyOptions = {
   },
   h3: {
     fontWeight: 600,
-    fontSize: pxToRem(22), // 22px
+    fontSize: pxToRem(20), // 24px
+    lineHeight: pxToRem(24), // 24px
   },
   h4: {
     fontWeight: 600,

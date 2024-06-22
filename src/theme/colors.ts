@@ -95,9 +95,9 @@ export const colors = {
   800: '#343C6A', // p
   900: '#232323',
   901: '#FE5C73', // p
-  903: '#F5F7FA',
-  904: '#8BA3CB',
+  903: '#F5F7FA', // bg layout
+  904: '#8BA3CB', // searchbar
   905: '#B1B1B1',
-  906: '#E6EFF5',
+  906: '#E6EFF5', // drawer border
   907: '#41D4A8',
 };

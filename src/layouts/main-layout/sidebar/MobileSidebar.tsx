@@ -2,19 +2,39 @@ import { Drawer, List, Toolbar, Typography } from '@mui/material';
 import { menuLinks } from 'layouts/main-layout/sidebar/MenuLinks';
 import MenuListItem from 'layouts/main-layout/sidebar/MenuListItem';
 import SimpleBar from 'simplebar-react';
-interface SidebarProps {
+
+interface MobileSidebarProps {
+  onDrawerClose: () => void;
+  onDrawerTransitionEnd: () => void;
+  mobileOpen: boolean;
   drawerWidth: number;
 }
-const Sidebar = ({ drawerWidth }: SidebarProps) => {
+const MobileSidebar = ({
+  onDrawerClose,
+  onDrawerTransitionEnd,
+  mobileOpen,
+  drawerWidth,
+}: MobileSidebarProps) => {
   return (
     <Drawer
-      variant="permanent"
-      sx={{
-        flexShrink: 0,
-        [`& .MuiDrawer-paper`]: {
+      anchor="left"
+      onTransitionEnd={onDrawerTransitionEnd}
+      open={mobileOpen}
+      onClose={onDrawerClose}
+      variant="temporary"
+      transitionDuration={200}
+      ModalProps={{
+        keepMounted: true, // Better open performance on mobile.
+      }}
+      PaperProps={{
+        sx: {
+          border: '0 !important',
+          boxShadow: (theme) => theme.shadows[2],
           width: drawerWidth,
         },
-        display: { xs: 'none', md: 'flex' },
+      }}
+      sx={{
+        display: { xs: 'flex', md: 'none' },
         flexDirection: 'column',
         gap: 2,
         py: 3.5,
@@ -26,7 +46,6 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
         <img src="/bankdash.svg" alt="Logo" style={{ width: 36 }} />
         <Typography variant="h2">Bankdash.</Typography>
       </Toolbar>
-
       <SimpleBar style={{ maxHeight: 'calc(100vh - 100px)' }}>
         <List sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {menuLinks.map((menu) => (
@@ -38,4 +57,4 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
   );
 };
 
-export default Sidebar;
+export default MobileSidebar;

@@ -1,41 +1,63 @@
-import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Box, IconButton, Toolbar, Typography } from '@mui/material';
+import ProfileImage from 'assets/avatar.jpg';
+import IconifyIcon from 'components/base/IconifyIcon';
 import SearchInput from 'layouts/main-layout/navbar/SearchInput';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-const MainNavbar = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [showMenu, setShowMenu] = useState(false);
-  const navigate = useNavigate();
+interface NavbarProps {
+  onDrawerToggle: () => void;
+}
+const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
   return (
     <>
-      <AppBar position="static" sx={{ bgcolor: 'white', px: 2, py: 1 }}>
+      <AppBar position="sticky" sx={{ bgcolor: 'white' }}>
         <Toolbar
-          sx={{ display: 'flex', justifyContent: 'space-between', gap: 2, flexWrap: 'wrap' }}
+          sx={{
+            flexWrap: 'wrap',
+          }}
         >
-          <IconButton
-            onClick={() => setShowMenu(true)}
-            sx={{ display: { md: 'none' }, color: 'black', width: 40, height: 40 }}
-          >
-            {/* <MenuIcon /> */}
+          <IconButton onClick={onDrawerToggle} sx={{ display: { md: 'none' }, mr: 2 }}>
+            <IconifyIcon icon="mingcute:menu-line" color="secondary.main" />
           </IconButton>
-          <Typography variant="h1" sx={{ color: 'primary.main', flex: 1 }}>
+          <Typography
+            sx={{
+              typography: { xs: 'h3', md: 'h1' },
+              color: 'secondary.main',
+              flex: 1,
+            }}
+          >
             Overview
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, width: 250 }}>
-              <SearchInput /> search input
-            </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button variant="text" onClick={() => navigate('/settings')}>
-                {/* <SettingOIcon /> */}Icon setting menu
-              </Button>
+              <SearchInput />
             </Box>
+            <div>
+              <IconButton sx={{ bgcolor: 'background.paper' }}>
+                <IconifyIcon icon="solar:settings-linear" color="text.secondary" />
+              </IconButton>
+            </div>
+            <IconButton sx={{ p: 0, position: 'relative' }}>
+              <Avatar
+                alt="Avatar"
+                src={ProfileImage}
+                slotProps={{
+                  img: {
+                    style: {
+                      objectFit: 'cover',
+                      position: 'absolute',
+                      top: '70%',
+                      left: '30%',
+                      transform: 'translate(-50%, -50%) scale(1.5)',
+                      width: 60,
+                      height: 60,
+                    },
+                  },
+                }}
+                sx={{ width: 60, height: 60 }}
+              />
+            </IconButton>
+
             {/* <NotifButton />
               <ProfileButton /> */}
-          </Box>
-          <Box sx={{ display: { xs: 'block', md: 'none' }, width: '100%' }}>
-            {/* <SearchInput handleSubmit={handleSubmit} fullWidth /> */} search
           </Box>
         </Toolbar>
       </AppBar>
