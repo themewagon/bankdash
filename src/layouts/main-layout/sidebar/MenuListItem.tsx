@@ -39,7 +39,7 @@ const MenuListItem = ({ menuItem }: MenuListProps) => {
           px: 3,
           display: 'flex',
           alignItems: 'center',
-          gap: 1.5,
+          gap: 3.125,
           flex: 1,
           color: isActive ? 'primary.main' : 'action.disabled',
           transition: 'color 0.5s ease',
@@ -55,7 +55,7 @@ const MenuListItem = ({ menuItem }: MenuListProps) => {
         </ListItemIcon>
         <ListItemText
           primary={
-            <Typography variant="body1" sx={{ textTransform: 'capitalize' }}>
+            <Typography variant="h6" sx={{ textTransform: 'capitalize' }}>
               {menuItem.title}
             </Typography>
           }

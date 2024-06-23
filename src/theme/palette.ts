@@ -30,7 +30,7 @@ const palette: PaletteOptions = {
   background: { paper: colors[903] }, //
   neutral: {
     lighter: grey[100],
-    light: grey[700],
+    light: colors[908],
     main: colors[906],
     dark: grey[900],
     darker: grey[900],
@@ -44,8 +44,8 @@ const palette: PaletteOptions = {
     darker: blue[900],
   },
   secondary: {
-    lighter: purple[50],
-    light: purple[300],
+    lighter: colors[904],
+    light: colors[50],
     main: colors[800],
     dark: purple[700],
     darker: purple[900],
@@ -76,7 +76,7 @@ const palette: PaletteOptions = {
   },
   grey,
   text: {
-    primary: grey[800],
+    primary: colors[800],
     secondary: colors[904],
     disabled: grey[400],
   },

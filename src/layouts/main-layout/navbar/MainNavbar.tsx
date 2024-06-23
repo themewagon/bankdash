@@ -1,11 +1,18 @@
-import { AppBar, Avatar, Box, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Box, IconButton, Stack, Toolbar, Typography } from '@mui/material';
 import ProfileImage from 'assets/avatar.jpg';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SearchInput from 'layouts/main-layout/navbar/SearchInput';
+import { useLocation } from 'react-router-dom';
 interface NavbarProps {
   onDrawerToggle: () => void;
 }
 const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
+  const location = useLocation();
+
+  // Extract the route name from the pathname
+  const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
+  const routeName = pathSegments.length > 0 ? pathSegments.pop() : 'Overview';
+
   return (
     <>
       <AppBar position="sticky" sx={{ bgcolor: 'white' }}>
@@ -24,17 +31,21 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
               flex: 1,
             }}
           >
-            Overview
+            {routeName}
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Stack direction="row" sx={{ alignItems: 'center', gap: 4 }}>
+            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
               <SearchInput />
             </Box>
-            <div>
-              <IconButton sx={{ bgcolor: 'background.paper' }}>
-                <IconifyIcon icon="solar:settings-linear" color="text.secondary" />
-              </IconButton>
-            </div>
+
+            <IconButton sx={{ bgcolor: 'background.paper' }}>
+              <IconifyIcon icon="lucide:settings" color="text.secondary" />
+            </IconButton>
+
+            <IconButton sx={{ bgcolor: 'background.paper' }}>
+              <IconifyIcon icon="lucide:bell-dot" color="error.main" />
+            </IconButton>
+
             <IconButton sx={{ p: 0, position: 'relative' }}>
               <Avatar
                 alt="Avatar"
@@ -55,13 +66,9 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
                 sx={{ width: 60, height: 60 }}
               />
             </IconButton>
-
-            {/* <NotifButton />
-              <ProfileButton /> */}
-          </Box>
+          </Stack>
         </Toolbar>
       </AppBar>
-      {/* <MobileSidebar show={showMenu} handleClose={() => setShowMenu(false)} /> */}
     </>
   );
 };

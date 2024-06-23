@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material';
 import AppBarComponent from 'theme/components/AppBar';
 import ButtonBaseComponent from 'theme/components/ButtonBase';
+import CardComponent from 'theme/components/Card';
 import CssBaselineComponent from 'theme/components/CssBaseline';
 import DrawerComponent from 'theme/components/Drawer';
 import FilledInputComponent from 'theme/components/form/FilledInput';
@@ -23,6 +24,7 @@ export const theme = createTheme({
   components: {
     MuiAppBar: AppBarComponent,
     MuiButtonBase: ButtonBaseComponent,
+    MuiCard: CardComponent,
     MuiCssBaseline: CssBaselineComponent,
     MuiDrawer: DrawerComponent,
     MuiFilledInput: FilledInputComponent,

@@ -41,7 +41,7 @@ export const red = {
   200: '#E99AA8',
   300: '#E17286',
   400: '#D84A63',
-  500: '#D02241',
+  500: '#FE5C73',
   600: '#B11D37',
   700: '#91182D',
   800: '#721324',
@@ -92,12 +92,13 @@ export const colors = {
   500: '#16DBCC',
   600: '#2D60FF', // primary
   700: '#FEAA09', // p
-  800: '#343C6A', // p
+  800: '#343C6A', // primary text color
   900: '#232323',
-  901: '#FE5C73', // p
+  901: '#FE5C73', // error
   903: '#F5F7FA', // bg layout
   904: '#8BA3CB', // searchbar
   905: '#B1B1B1',
   906: '#E6EFF5', // drawer border
   907: '#41D4A8',
+  908: '#DFEAF2', // used in card border
 };
