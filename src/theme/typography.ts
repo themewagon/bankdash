@@ -65,9 +65,9 @@ const typography: TypographyOptions = {
     lineHeight: 1.1875, // 19px
   },
   button: {
-    fontWeight: 700,
-    fontSize: '0.875rem',
-    lineHeight: 1.286,
+    fontWeight: 500,
+    fontSize: '16px', // 16px
+    lineHeight: 1.1875, // 19px
     textTransform: 'capitalize',
   },
   caption: {

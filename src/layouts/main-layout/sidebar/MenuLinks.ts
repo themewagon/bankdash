@@ -1,5 +1,12 @@
 import { SvgIconProps } from '@mui/material';
+import CreditCardIcon from 'components/icons/menu-icons/CreditCardIcon';
 import HomeIcon from 'components/icons/menu-icons/HomeIcon';
+import InvestIcon from 'components/icons/menu-icons/InvestIcon';
+import LoanIcon from 'components/icons/menu-icons/LoanIcon';
+import ServiceIcon from 'components/icons/menu-icons/ServiceIcon';
+import SettingsIcon from 'components/icons/menu-icons/SettingsIcon';
+import TransferIcon from 'components/icons/menu-icons/TransferIcon';
+import UserIcon from 'components/icons/menu-icons/UserIcon';
 
 export enum linkEnum {
   Dashboard = 'dashboard',
@@ -29,42 +36,42 @@ export const menuLinks: MenuLinkType[] = [
     id: 2,
     title: linkEnum.Transactions,
     link: '/transactions',
-    icon: HomeIcon,
+    icon: TransferIcon,
   },
   {
     id: 3,
     title: linkEnum.Accounts,
     link: '/accounts',
-    icon: HomeIcon,
+    icon: UserIcon,
   },
   {
     id: 4,
     title: linkEnum.Investments,
     link: '/investments',
-    icon: HomeIcon,
+    icon: InvestIcon,
   },
   {
     id: 5,
     title: linkEnum.Credit,
     link: '/credit-cards',
-    icon: HomeIcon,
+    icon: CreditCardIcon,
   },
   {
     id: 6,
     title: linkEnum.Loans,
     link: '/loans',
-    icon: HomeIcon,
+    icon: LoanIcon,
   },
   {
     id: 7,
     title: linkEnum.Services,
     link: '#!',
-    icon: HomeIcon,
+    icon: ServiceIcon,
   },
   {
     id: 8,
     title: linkEnum.Setting,
     link: '#!',
-    icon: HomeIcon,
+    icon: SettingsIcon,
   },
 ];

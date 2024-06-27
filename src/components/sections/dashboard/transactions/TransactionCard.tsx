@@ -7,7 +7,7 @@ import PaypalIcon from 'components/icons/card-icons/PaypalIcon';
 const transactions = [
   {
     id: 1,
-    icon: <CreditCardIcon />,
+    icon: CreditCardIcon,
     bgcolor: 'warning.lighter',
     color: 'yellow',
     title: 'Deposit from my Card',
@@ -17,7 +17,7 @@ const transactions = [
   },
   {
     id: 2,
-    icon: <PaypalIcon />,
+    icon: PaypalIcon,
     bgcolor: 'primary.lighter',
     color: 'primary.main',
     title: 'Deposit Paypal',
@@ -27,7 +27,7 @@ const transactions = [
   },
   {
     id: 3,
-    icon: <CoinIcon />,
+    icon: CoinIcon,
     bgcolor: 'info.lighter',
     color: 'cyan',
     title: 'Jemi Wilson',
@@ -41,44 +41,46 @@ const TransactionCard = () => {
   return (
     <Card>
       <List sx={{ color: 'primary.main', '& > *:not(:last-child)': { mb: 2.5 }, p: 3 }}>
-        {transactions.map((transaction) => (
-          <ListItem key={transaction.id} sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-            <Stack
-              direction="row"
-              sx={{
-                width: 55,
-                height: 55,
-                alignItems: 'center',
-                justifyContent: 'center',
-                bgcolor: transaction.bgcolor,
-                color: transaction.color,
-                borderRadius: '50%',
-              }}
-            >
-              {transaction.icon}
-            </Stack>
-            <Stack
-              direction="row"
-              sx={{
-                flexGrow: 1,
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <Stack gap={1}>
-                <Typography variant="body2" sx={{ color: 'secondary.main' }}>
-                  {transaction.title}
-                </Typography>
-                <Typography variant="body1" sx={{ color: 'secondary.light' }}>
-                  {transaction.date}
+        {transactions.map(
+          ({ id, icon: IconComponent, bgcolor, color, title, date, amount, amountColor }) => (
+            <ListItem key={id} sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+              <Stack
+                direction="row"
+                sx={{
+                  width: 55,
+                  height: 55,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  bgcolor: bgcolor,
+                  color: color,
+                  borderRadius: '50%',
+                }}
+              >
+                <IconComponent />
+              </Stack>
+              <Stack
+                direction="row"
+                sx={{
+                  flexGrow: 1,
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <Stack gap={1}>
+                  <Typography variant="body2" sx={{ color: 'secondary.main' }}>
+                    {title}
+                  </Typography>
+                  <Typography variant="body1" sx={{ color: 'secondary.light' }}>
+                    {date}
+                  </Typography>
+                </Stack>
+                <Typography variant="body1" sx={{ color: amountColor }}>
+                  {amount}
                 </Typography>
               </Stack>
-              <Typography variant="body1" sx={{ color: transaction.amountColor }}>
-                {transaction.amount}
-              </Typography>
-            </Stack>
-          </ListItem>
-        ))}
+            </ListItem>
+          ),
+        )}
       </List>
     </Card>
   );

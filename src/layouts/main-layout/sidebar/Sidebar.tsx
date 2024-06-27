@@ -30,7 +30,7 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
       <SimpleBar style={{ maxHeight: 'calc(100vh - 100px)' }}>
         <List sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {menuLinks.map((menu) => (
-            <MenuListItem menuItem={menu} />
+            <MenuListItem key={menu.id} menuItem={menu} />
           ))}
         </List>
       </SimpleBar>

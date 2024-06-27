@@ -1,11 +1,8 @@
-// Ensure that the shadows array has 25 elements
-const defaultShadows = Array(25).fill('none');
-const customShadows = [
-  // Add your custom shadows here
-  '0px 1px 0px 0px rgba(0, 0, 0, 0.02), 2px 3px 3px 0px rgba(0, 0, 0, 0.06)',
-  '0px 1px 1px 0px rgba(0, 0, 0, 0.03), 2px 2px 10px 0px rgba(0, 0, 0, 0.09)',
-
-  '0px 0.286px 1.134px 0px rgba(0, 0, 0, 0.02), 0px 1.36px 2.867px 0px rgba(0, 0, 0, 0.03), 1px 3.92px 5.79px 0px rgba(0, 0, 0, 0.04), 2px 9px 11px 0px rgba(0, 0, 0, 0.04)',
+const defaultShadows = [
+  'none', // 0
+  '0px 1px 0px 0px rgba(0, 0, 0, 0.02), 2px 3px 3px 0px rgba(0, 0, 0, 0.06)', // 1
+  '0px 1px 1px 0px rgba(0, 0, 0, 0.03), 2px 2px 10px 0px rgba(0, 0, 0, 0.09)', // 2
+  '4px 4px 18px -2px rgba(231, 228, 232, 0.8)', // 3
 
   '0px -2.46px 3.86px 0px rgba(0, 0, 0, 0.02), 0px 2.258px 4.692px 0px rgba(0, 0, 0, 0.02), 0px 6.147px 9.475px 0px rgba(0, 0, 0, 0.03), 4px 18px 18px 0px rgba(0, 0, 0, 0.04)',
 
@@ -19,6 +16,17 @@ const customShadows = [
   // ...
 ];
 
-const shadows = defaultShadows.map((defaultShadow, index) => customShadows[index] || defaultShadow);
+const fillShadows = (shadows: string[], totalShadows: number) => {
+  const filledShadows = [...shadows];
+  const defaultShadow = '0px 0px 0px 0px rgba(0, 0, 0, 0.0)';
+  // Default shadow for filling
 
+  while (filledShadows.length < totalShadows) {
+    filledShadows.push(defaultShadow);
+  }
+
+  return filledShadows.slice(0, totalShadows);
+};
+
+const shadows = fillShadows(defaultShadows, 25);
 export default shadows;

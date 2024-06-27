@@ -4,8 +4,11 @@ import { Components } from '@mui/material/styles/components';
 const IconButtonComponent: Components<Omit<Theme, 'components'>>['MuiIconButton'] = {
   styleOverrides: {
     root: ({ theme }) => ({
+      color: theme.palette.secondary.light,
+      transition: 'all 0.3s ease-in-out',
       '&:hover': {
         backgroundColor: 'transparent',
+        // boxShadow: theme.shadows[3],
       },
 
       [theme.breakpoints.down('sm')]: {

@@ -27,7 +27,7 @@ const palette: PaletteOptions = {
     disabledBackground: grey[200],
     focus: grey[300],
   },
-  background: { paper: colors[903] }, //
+  background: { paper: colors[903] },
   neutral: {
     lighter: grey[100],
     light: colors[908],

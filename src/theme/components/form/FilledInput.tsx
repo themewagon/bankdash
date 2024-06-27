@@ -17,6 +17,7 @@ const FilledInputComponent: Components<Omit<Theme, 'components'>>['MuiFilledInpu
       '&.Mui-focused, &:hover': {
         backgroundColor: theme.palette.background.paper,
       },
+      '&:-webkit-autofill': { borderRadius: theme.shape.borderRadius * 2.5 },
     }),
     input: ({ theme }) => ({
       fontSize: theme.typography.pxToRem(15),
@@ -26,7 +27,9 @@ const FilledInputComponent: Components<Omit<Theme, 'components'>>['MuiFilledInpu
       paddingTop: theme.spacing(2),
       paddingRight: theme.spacing(1.5),
       paddingBottom: theme.spacing(2),
+      paddingLeft: theme.spacing(3),
     }),
+    inputAdornedStart: ({ theme }) => ({ paddingLeft: theme.spacing(0) }),
   },
 };
 

@@ -5,8 +5,14 @@ interface IconifyProps extends BoxProps {
   icon: IconProps['icon'];
 }
 
-const IconifyIcon = ({ icon, ...rest }: IconifyProps) => {
-  return <Box component={Icon} icon={icon} {...rest} />;
+const IconifyIcon = ({ icon, width = 20, sx, ...rest }: IconifyProps) => {
+  const baseStyles = {
+    width,
+    height: width,
+    flexShrink: 0,
+    display: 'inline-flex',
+  };
+  return <Box component={Icon} icon={icon} sx={{ ...baseStyles, ...sx }} {...rest} />;
 };
 
 export default IconifyIcon;

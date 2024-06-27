@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import { createTheme, Shadows } from '@mui/material';
 import AppBarComponent from 'theme/components/AppBar';
 import ButtonBaseComponent from 'theme/components/ButtonBase';
 import CardComponent from 'theme/components/Card';
@@ -16,11 +16,13 @@ import ListItemComponent from 'theme/components/list/ListItem';
 import ToolbarComponent from 'theme/components/Toolbar';
 // import type {} from '@mui/x-data-grid/themeAugmentation';
 import palette from 'theme/palette';
+import shadows from 'theme/shadows';
 import typography from 'theme/typography';
 
 export const theme = createTheme({
   palette,
   typography,
+  shadows: [...shadows] as Shadows,
   components: {
     MuiAppBar: AppBarComponent,
     MuiButtonBase: ButtonBaseComponent,
