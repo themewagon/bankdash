@@ -1,20 +1,36 @@
-import { TypographyOptions } from '@mui/material/styles/createTypography';
+import { Theme } from '@mui/material';
+import type { TypographyOptions } from '@mui/material/styles/createTypography';
 import pxToRem from 'theme/functions/pxToRem';
-declare module '@mui/material/styles/createTypography' {
-  interface TypographyOptions {
-    fontWeightLighter?: number;
-  }
-  interface TypographyOptions {
-    fontWeightExtraBold?: number;
-  }
 
-  interface Typography {
-    fontWeightExtraBold: number;
+// ----------------------------------------------------------------------
+
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    fontSecondaryFamily: React.CSSProperties['fontFamily'];
+    fontWeightSemiBold: React.CSSProperties['fontWeight'];
+    fontWeightLight: React.CSSProperties['fontWeight'];
+    fontWeightExtraBold: React.CSSProperties['fontWeight'];
+  }
+  interface TypographyVariantsOptions {
+    fontSecondaryFamily?: React.CSSProperties['fontFamily'];
+    fontWeightLight?: React.CSSProperties['fontWeight'];
+    fontWeightSemiBold?: React.CSSProperties['fontWeight'];
+    fontWeightExtraBold?: React.CSSProperties['fontWeight'];
+  }
+  interface ThemeVars {
+    typography: Theme['typography'];
   }
 }
+
 const typography: TypographyOptions = {
   fontFamily: ['Inter', 'sans-serif'].join(','),
-  //   fontSize: 16,
+  //   fontWeightLighter: 100,
+  fontWeightLight: 300,
+  fontWeightRegular: 400,
+  fontWeightMedium: 500,
+  fontWeightSemiBold: 600,
+  fontWeightBold: 700,
+  fontWeightExtraBold: 800,
   h1: {
     fontWeight: 600,
     fontSize: pxToRem(28),
@@ -73,7 +89,7 @@ const typography: TypographyOptions = {
   caption: {
     fontWeight: 400,
     fontSize: pxToRem(12), // 12px
-    lineHeight: 1.16666, // 14px
+    lineHeight: 1.25, // 15px
   },
   overline: {
     fontWeight: 400,

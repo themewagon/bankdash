@@ -1,9 +1,14 @@
 import { Drawer, List, Toolbar, Typography } from '@mui/material';
+import Image from 'components/base/Image';
 import { menuLinks } from 'layouts/main-layout/sidebar/MenuLinks';
 import MenuListItem from 'layouts/main-layout/sidebar/MenuListItem';
 import SimpleBar from 'simplebar-react';
 interface SidebarProps {
-  drawerWidth: number;
+  drawerWidth: {
+    lg: number;
+    md: number;
+    sm: number;
+  };
 }
 const Sidebar = ({ drawerWidth }: SidebarProps) => {
   return (
@@ -12,18 +17,26 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
       sx={{
         flexShrink: 0,
         [`& .MuiDrawer-paper`]: {
-          width: drawerWidth,
+          width: {
+            xs: drawerWidth.sm,
+            lg: drawerWidth.md,
+            xl: drawerWidth.lg,
+          },
         },
         display: { xs: 'none', md: 'flex' },
         flexDirection: 'column',
         gap: 2,
         py: 3.5,
         overflow: 'hidden',
-        width: drawerWidth,
+        width: {
+          xs: drawerWidth.sm,
+          lg: drawerWidth.md,
+          xl: drawerWidth.lg,
+        },
       }}
     >
       <Toolbar sx={{ gap: 1, minHeight: 100 }}>
-        <img src="/bankdash.svg" alt="Logo" style={{ width: 36 }} />
+        <Image src="/bankdash.svg" alt="Logo" sx={{ width: 36 }} />
         <Typography variant="h2">Bankdash.</Typography>
       </Toolbar>
 

@@ -25,6 +25,10 @@ const ToolbarComponent: Components<Omit<Theme, 'components'>>['MuiToolbar'] = {
         paddingLeft: theme.spacing(2.5),
         paddingRight: theme.spacing(2.5),
       },
+      [theme.breakpoints.down('xl')]: {
+        paddingLeft: theme.spacing(5),
+        paddingRight: theme.spacing(5),
+      },
     }),
   },
 };

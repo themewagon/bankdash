@@ -7,7 +7,7 @@ const DrawerComponent: Components<Omit<Theme, 'components'>>['MuiDrawer'] = {
     paper: ({ theme }) => ({
       background: theme.palette.common.white,
       borderRightWidth: 1,
-      borderColor: theme.palette.neutral.main,
+      borderColor: theme.palette.action.focus,
     }),
     // docked: ({ theme }) => ({
     //   background: theme.palette.common.black,

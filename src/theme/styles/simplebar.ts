@@ -8,10 +8,19 @@ const simplebar = (theme: Theme) => ({
           cursor: 'grab',
           backgroundColor: theme.palette.primary.light,
         },
+
         '&.simplebar-visible': {
           '&:before': {
             opacity: 1,
           },
+        },
+      },
+    },
+    '&.simplebar-horizontal': {
+      '& .simplebar-scrollbar': {
+        '&:before': {
+          cursor: 'grab',
+          backgroundColor: theme.palette.primary.light,
         },
       },
     },

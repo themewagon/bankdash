@@ -8,12 +8,12 @@ const CssBaselineComponent: Components<Omit<Theme, 'components'>>['MuiCssBaselin
   styleOverrides: (theme) => ({
     body: {
       fontVariantLigatures: 'none',
-      '&:-webkit-autofill': {
-        '-webkit-box-shadow': '0 0 0 100px #000 inset',
-        '-webkit-text-fill-color': '#fff',
-      },
-      //   ...scrollbar(theme),
     },
+    'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active':
+      {
+        WebkitBoxShadow: '0 0 0 30px transparent inset !important',
+        transition: 'background-color 5000s ease-in-out 0s',
+      },
     ...simplebar(theme),
     // ...echart(),
   }),

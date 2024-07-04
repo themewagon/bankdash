@@ -4,16 +4,16 @@ import { Components } from '@mui/material/styles/components';
 const IconButtonComponent: Components<Omit<Theme, 'components'>>['MuiIconButton'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      color: theme.palette.secondary.light,
+      color: theme.palette.primary.light,
       transition: 'all 0.3s ease-in-out',
       '&:hover': {
         backgroundColor: 'transparent',
         // boxShadow: theme.shadows[3],
       },
 
-      [theme.breakpoints.down('sm')]: {
-        padding: theme.spacing(0.25),
-      },
+      //   [theme.breakpoints.down('sm')]: {
+      //     padding: theme.spacing(0.25),
+      //   },
     }),
     // colorPrimary: ({ theme }) => ({
     //   backgroundColor: theme.palette.primary.main,
@@ -33,7 +33,7 @@ const IconButtonComponent: Components<Omit<Theme, 'components'>>['MuiIconButton'
     // colorWarning: ({ theme }) => ({
     //   backgroundColor: theme.palette.warning.light,
     //   color: theme.palette.warning.main,
-    //   '&:hover': { backgroundColor: theme.palette.warning.lighter },
+    //   '&:hover': { backgroundColor: theme.palette.warning.light },
     // }),
     sizeMedium: ({ theme }) => ({
       padding: theme.spacing(1.5),

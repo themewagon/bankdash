@@ -6,7 +6,9 @@ interface MenuListProps {
 }
 const MenuListItem = ({ menuItem }: MenuListProps) => {
   const { icon: Icon } = menuItem;
-  const itemIcon = Icon ? <Icon /> : null;
+  const itemIcon = Icon ? (
+    <Icon sx={{ width: { xs: 20, xl: 24 }, height: { xs: 20, xl: 24 } }} />
+  ) : null;
   const location = useLocation();
 
   // check if list item is active
@@ -48,6 +50,7 @@ const MenuListItem = ({ menuItem }: MenuListProps) => {
         <ListItemIcon
           sx={{
             minWidth: 'auto',
+
             color: isActive ? 'primary.main' : 'action.disabled',
           }}
         >
@@ -55,7 +58,7 @@ const MenuListItem = ({ menuItem }: MenuListProps) => {
         </ListItemIcon>
         <ListItemText
           primary={
-            <Typography variant="h6" sx={{ textTransform: 'capitalize' }}>
+            <Typography sx={{ typography: { sm: 'body1', xl: 'h6' }, textTransform: 'capitalize' }}>
               {menuItem.title}
             </Typography>
           }

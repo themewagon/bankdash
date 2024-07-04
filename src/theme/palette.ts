@@ -1,5 +1,5 @@
 import { PaletteColorOptions, PaletteOptions } from '@mui/material/styles';
-import { blue, colors, green, grey, lightBlue, orange, purple, red } from './colors';
+import { blue, green, grey, purple, red, yellow } from './colors';
 
 declare module '@mui/material/styles' {
   interface PaletteOptions {
@@ -23,64 +23,53 @@ const palette: PaletteOptions = {
     active: grey[500],
     hover: grey[50],
     selected: grey[100],
-    disabled: '#b1b1b1',
+    disabled: grey[400],
     disabledBackground: grey[200],
     focus: grey[300],
+    hoverOpacity: 0.05,
   },
-  background: { paper: colors[903] },
+  background: { paper: grey[50] },
   neutral: {
-    lighter: grey[100],
-    light: colors[908],
-    main: colors[906],
-    dark: grey[900],
-    darker: grey[900],
+    light: blue[100],
+    main: grey[600],
+    dark: grey[800],
     contrastText: '#ffffff',
   },
   primary: {
-    lighter: blue[50],
-    light: blue[400],
+    lighter: blue[200],
+    light: blue[300],
     main: blue[500],
-    dark: blue[600],
+    dark: blue[800],
     darker: blue[900],
   },
   secondary: {
-    lighter: colors[904],
-    light: colors[50],
-    main: colors[800],
+    lighter: purple[100],
+    light: purple[50],
+    main: purple[800],
     dark: purple[700],
     darker: purple[900],
   },
-  error: { lighter: red[50], light: red[300], main: red[500], dark: red[600], darker: red[900] },
+  error: { main: red[500] },
   warning: {
-    lighter: orange[50],
-    light: orange[400],
-    main: orange[500],
-    dark: orange[700],
-    darker: orange[900],
+    lighter: yellow[50],
+    light: yellow[100],
+    main: yellow[500],
+    dark: yellow[700],
+    darker: yellow[900],
     contrastText: '#ffffff',
   },
   success: {
     lighter: green[50],
-    light: green[400],
     main: green[500],
-    dark: green[700],
-    darker: green[900],
   },
-  info: {
-    lighter: lightBlue[50],
-    light: lightBlue[300],
-    main: lightBlue[500],
-    dark: lightBlue[700],
-    darker: lightBlue[900],
-    contrastText: '#ffffff',
-  },
+
   grey,
   text: {
-    primary: colors[800],
-    secondary: colors[904],
-    disabled: grey[400],
+    primary: blue[900],
+    secondary: blue[200],
+    disabled: blue[50],
   },
-  divider: green[700],
+  divider: grey[100],
 };
 
 export default palette;

@@ -32,7 +32,9 @@ function SearchInput() {
           //   display: { xs: 'none', md: 'block' },
           //   width: '100%',
           //   height: '100%',
-          '& .MuiFilledInput-root': { borderRadius: 40 },
+          '& .MuiFilledInput-root': {
+            borderRadius: 40,
+          },
           //   pl: '56px',
           //   pr: 1,
           //   py: 1,

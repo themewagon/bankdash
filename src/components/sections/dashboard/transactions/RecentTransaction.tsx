@@ -1,15 +1,8 @@
-import { Box, Typography } from '@mui/material';
+import CardContainer from 'components/common/CardContainter';
 import TransactionCard from 'components/sections/dashboard/transactions/TransactionCard';
 
 const RecentTransactions = () => {
-  return (
-    <Box sx={{ overflow: 'auto' }}>
-      <Box sx={{ pt: 3, pb: 2.5 }}>
-        <Typography variant="h3">Recent Transaction</Typography>
-      </Box>
-      <TransactionCard />
-    </Box>
-  );
+  return <CardContainer title="Recent Transaction" CardComponent={TransactionCard} />;
 };
 
 export default RecentTransactions;

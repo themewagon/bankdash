@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import React, { useRef } from 'react';
 
@@ -10,22 +10,23 @@ const CardContainer = ({ title, CardComponent }: CardComponentProps) => {
   const chartRef = useRef<EChartsReactCore | null>(null);
 
   return (
-    <Box sx={{ overflow: 'auto' }}>
-      <Box sx={{ pb: 2.5 }}>
+    <Stack sx={{ overflow: 'auto', height: 1, justifyContent: 'space-between' }}>
+      <Box sx={{ mb: 2.5, mt: 3 }}>
         <Typography variant="h3">{title}</Typography>
       </Box>
-      <Card sx={{ backgroundColor: 'common.white', width: 1 }}>
+      <Card sx={{ backgroundColor: 'common.white', width: 1, flex: 1 }}>
         <CardContent
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
+            height: 1,
           }}
         >
           <CardComponent chartRef={chartRef} />
         </CardContent>
       </Card>
-    </Box>
+    </Stack>
   );
 };
 

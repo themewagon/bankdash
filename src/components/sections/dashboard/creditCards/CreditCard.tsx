@@ -25,7 +25,7 @@ const CreditCard = ({ theme = 'white' }: CreditCardProps) => {
       case 'white':
         return {
           cardBg: 'common.white',
-          textColor: 'secondary.main',
+          textColor: 'primary.darker',
           labelColor: '#718EBF',
           chipCard: ChipCardBlack,
           bankLogo: BankLogoAlt,
@@ -56,7 +56,7 @@ const CreditCard = ({ theme = 'white' }: CreditCardProps) => {
         background: cardBg,
         color: textColor,
         border: 1,
-        borderColor: 'neutral.light',
+        borderColor: 'action.focus',
       }}
     >
       <Stack px={3} py={3} sx={{ gap: 4 }}>
@@ -116,9 +116,10 @@ const CreditCard = ({ theme = 'white' }: CreditCardProps) => {
           alignItems: 'center',
           mt: 1.25,
           px: 3,
-          py: 3,
+          pt: 3,
+          pb: 4,
           borderTop: borderStyle,
-          borderColor: 'neutral.light',
+          borderColor: 'action.focus',
         }}
       >
         <Typography variant="h3">3778 **** **** 1234</Typography>

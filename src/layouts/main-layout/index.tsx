@@ -4,7 +4,7 @@ import MobileSidebar from 'layouts/main-layout/sidebar/MobileSidebar';
 import Sidebar from 'layouts/main-layout/sidebar/Sidebar';
 import { PropsWithChildren, useState } from 'react';
 
-const drawerWidth = 300;
+const drawerWidth = { lg: 250, md: 240, sm: 230 };
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -32,7 +32,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
           onDrawerClose={handleDrawerClose}
           onDrawerTransitionEnd={handleDrawerTransitionEnd}
           mobileOpen={mobileOpen}
-          drawerWidth={drawerWidth}
+          drawerWidth={drawerWidth.lg}
         />
         <Stack
           sx={{
@@ -41,13 +41,14 @@ const MainLayout = ({ children }: PropsWithChildren) => {
               md: 'auto',
             },
             flexGrow: 1,
+            overflow: 'hidden',
           }}
         >
           <MainNavbar onDrawerToggle={handleDrawerToggle} />
           <Stack
             sx={{
               backgroundColor: 'background.paper',
-              px: { xs: 3.25, md: 7 },
+              px: { xs: 5, xl: 7 },
               flex: 1,
               gap: 6,
             }}

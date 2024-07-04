@@ -1,5 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import CreditCard from 'components/sections/dashboard/creditCards/CreditCard';
+import SimpleBar from 'simplebar-react';
 
 const MyCards = () => {
   return (
@@ -15,10 +16,12 @@ const MyCards = () => {
           See All
         </Typography>
       </Stack>
-      <Stack direction="row" justifyContent="space-between" gap={4}>
-        <CreditCard theme="blue" />
-        <CreditCard theme="white" />
-      </Stack>
+      <SimpleBar style={{ maxWidth: '100%', overflowX: 'auto' }}>
+        <Stack direction="row" justifyContent="space-between" gap={4} sx={{ minWidth: '800px' }}>
+          <CreditCard theme="blue" />
+          <CreditCard theme="white" />
+        </Stack>
+      </SimpleBar>
     </Box>
   );
 };

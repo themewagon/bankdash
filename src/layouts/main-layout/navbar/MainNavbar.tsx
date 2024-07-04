@@ -22,12 +22,12 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
           }}
         >
           <IconButton onClick={onDrawerToggle} sx={{ display: { md: 'none' }, mr: 2 }}>
-            <IconifyIcon icon="mingcute:menu-line" color="secondary.main" />
+            <IconifyIcon icon="mingcute:menu-line" color="primary.darker" />
           </IconButton>
           <Typography
             sx={{
               typography: { xs: 'h3', md: 'h1' },
-              color: 'secondary.main',
+              color: 'primary.darker',
               flex: 1,
             }}
           >

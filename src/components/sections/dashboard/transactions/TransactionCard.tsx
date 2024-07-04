@@ -8,8 +8,7 @@ const transactions = [
   {
     id: 1,
     icon: CreditCardIcon,
-    bgcolor: 'warning.lighter',
-    color: 'yellow',
+    bgcolor: 'warning.light',
     title: 'Deposit from my Card',
     date: '25 January 2021',
     amount: '-$500',
@@ -18,8 +17,7 @@ const transactions = [
   {
     id: 2,
     icon: PaypalIcon,
-    bgcolor: 'primary.lighter',
-    color: 'primary.main',
+    bgcolor: 'neutral.light',
     title: 'Deposit Paypal',
     date: '25 January 2021',
     amount: '+$500',
@@ -28,8 +26,7 @@ const transactions = [
   {
     id: 3,
     icon: CoinIcon,
-    bgcolor: 'info.lighter',
-    color: 'cyan',
+    bgcolor: 'success.lighter',
     title: 'Jemi Wilson',
     date: '25 January 2021',
     amount: '+$500',
@@ -39,11 +36,15 @@ const transactions = [
 /* -------------------------------------------------------------------------- */
 const TransactionCard = () => {
   return (
-    <Card>
-      <List sx={{ color: 'primary.main', '& > *:not(:last-child)': { mb: 2.5 }, p: 3 }}>
+    <Card sx={{ p: { xs: 0.5, xl: 1 } }}>
+      <List disablePadding sx={{ color: 'primary.main', '& > *:not(:last-child)': { mb: 2.5 } }}>
         {transactions.map(
-          ({ id, icon: IconComponent, bgcolor, color, title, date, amount, amountColor }) => (
-            <ListItem key={id} sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+          ({ id, icon: IconComponent, bgcolor, title, date, amount, amountColor }) => (
+            <ListItem
+              key={id}
+              sx={{ display: 'flex', alignItems: 'center', gap: 3 }}
+              disablePadding
+            >
               <Stack
                 direction="row"
                 sx={{
@@ -52,7 +53,6 @@ const TransactionCard = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   bgcolor: bgcolor,
-                  color: color,
                   borderRadius: '50%',
                 }}
               >
@@ -67,10 +67,10 @@ const TransactionCard = () => {
                 }}
               >
                 <Stack gap={1}>
-                  <Typography variant="body2" sx={{ color: 'secondary.main' }}>
+                  <Typography variant="body2" sx={{ color: 'primary.darker' }}>
                     {title}
                   </Typography>
-                  <Typography variant="body1" sx={{ color: 'secondary.light' }}>
+                  <Typography variant="body1" sx={{ color: 'primary.light' }}>
                     {date}
                   </Typography>
                 </Stack>
