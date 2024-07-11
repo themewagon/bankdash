@@ -1,4 +1,4 @@
-import { Box, Card, Grid, Stack, Typography } from '@mui/material';
+import { Box, Card, Grid, Palette, Stack, Typography, useTheme } from '@mui/material';
 import BankLogoAlt from 'assets/bank-logo-alt.svg';
 import BankLogo from 'assets/bank-logo.svg';
 import ChipCardBlack from 'assets/chip_black.png';
@@ -19,44 +19,43 @@ interface CreditCardProps {
   cardData: CreditCardData;
 }
 
-const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
-  const renderThemeStyles = () => {
-    switch (theme) {
-      case 'blue':
-        return {
-          cardBg: 'linear-gradient(to top right, #4C49ED 30%, #0A06F4)',
-          textColor: 'common.white',
-          chipCard: ChipCardWhite,
-          bankLogo: BankLogo,
-          cardGradient:
-            'linear-gradient(to bottom, rgba(255, 255, 255, .1) 0%, transparent) no-repeat',
-          borderStyle: 'none',
-        };
-      case 'white':
-        return {
-          cardBg: 'common.white',
-          textColor: 'primary.darker',
-          labelColor: '#718EBF',
-          chipCard: ChipCardBlack,
-          bankLogo: BankLogoAlt,
-          cardGradient:
-            'linear-gradient(to bottom right, rgba(255, 255, 255, 0.15) 0%, transparent) no-repeat',
-          borderStyle: 1,
-        };
-      default:
-        return {
-          cardBg: 'common.white',
-          textColor: 'common.black',
-          labelColor: '',
-          chipCard: ChipCardWhite,
-          bankLogo: BankLogo,
-          cardGradient: '',
-        };
-    }
-  };
+const getThemeStyles = (theme: 'blue' | 'white', palette: Palette) => {
+  switch (theme) {
+    case 'blue':
+      return {
+        cardBg: palette.gradients.blueGradient,
+        textColor: palette.common.white,
+        chipCard: ChipCardWhite,
+        bankLogo: BankLogo,
+        cardGradient: palette.gradients.whiteGradient,
+        borderStyle: 'none',
+      };
+    case 'white':
+      return {
+        cardBg: palette.common.white,
+        textColor: palette.primary.darker,
+        labelColor: palette.primary.light,
+        chipCard: ChipCardBlack,
+        bankLogo: BankLogoAlt,
+        cardGradient: palette.gradients.whiteCardGradient,
+        borderStyle: 1,
+      };
+    default:
+      return {
+        cardBg: palette.common.white,
+        textColor: palette.common.black,
+        labelColor: '',
+        chipCard: ChipCardWhite,
+        bankLogo: BankLogo,
+        cardGradient: '',
+      };
+  }
+};
 
+const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
+  const { palette } = useTheme();
   const { cardBg, textColor, cardGradient, borderStyle, bankLogo, chipCard, labelColor } =
-    renderThemeStyles();
+    getThemeStyles(theme, palette);
 
   const { balance, cardHolder, validThru, cardNumber } = cardData;
 

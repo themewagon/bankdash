@@ -15,6 +15,8 @@ const LinkComponent: Components<Omit<Theme, 'components'>>['MuiLink'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       color: theme.palette.text.primary,
+      transition: 'color 0.35s',
+      WebkitTransition: 'color 0.35s',
       '&:hover': {
         color: theme.palette.primary.lighter,
         '& .MuiSvgIcon-root': { color: theme.palette.primary.main },

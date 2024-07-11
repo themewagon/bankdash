@@ -2,8 +2,13 @@ import { PaletteColorOptions, PaletteOptions } from '@mui/material/styles';
 import { blue, green, grey, magneta, orange, red } from './colors';
 
 declare module '@mui/material/styles' {
+  interface GradientOptions {
+    [key: string]: string;
+  }
+
   interface PaletteOptions {
     neutral?: PaletteColorOptions;
+    gradients?: GradientOptions;
   }
   interface SimplePaletteColorOptions {
     lighter?: string;
@@ -11,10 +16,16 @@ declare module '@mui/material/styles' {
   }
   interface Palette {
     neutral: PaletteColor;
+    gradients: PaletteGradients;
   }
   interface PaletteColor {
     lighter: string;
     darker: string;
+  }
+  interface PaletteGradients {
+    blueGradient: string;
+    whiteGradient: string;
+    whiteCardGradient: string;
   }
 }
 
@@ -70,6 +81,12 @@ const palette: PaletteOptions = {
     disabled: blue[50],
   },
   divider: grey[100],
+  gradients: {
+    blueGradient: `linear-gradient(to top right, ${blue[700]} 30%, ${blue[600]})`,
+    whiteGradient: 'linear-gradient(to bottom, rgba(255, 255, 255, .1) 0%, transparent)',
+    whiteCardGradient:
+      'linear-gradient(to bottom right, rgba(255, 255, 255, 0.15) 0%, transparent)',
+  },
 };
 
 export default palette;

@@ -1,18 +1,12 @@
-import type { BoxProps } from '@mui/material/Box';
+import { Stack, StackProps } from '@mui/material';
 
-import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
-import Portal from '@mui/material/Portal';
 
 // ----------------------------------------------------------------------
 
-type Props = BoxProps & {
-  portal?: boolean;
-};
-
-const LoadingProgress = ({ portal, sx, ...other }: Props) => {
+const LoadingProgress = ({ sx, ...other }: StackProps) => {
   const content = (
-    <Box
+    <Stack
       sx={{
         px: 5,
         width: 1,
@@ -26,12 +20,8 @@ const LoadingProgress = ({ portal, sx, ...other }: Props) => {
       {...other}
     >
       <LinearProgress color="primary" sx={{ width: 1, maxWidth: 360 }} />
-    </Box>
+    </Stack>
   );
-
-  if (portal) {
-    return <Portal>{content}</Portal>;
-  }
 
   return content;
 };
