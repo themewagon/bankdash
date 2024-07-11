@@ -1,4 +1,4 @@
-import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
+import { IconButton, InputAdornment, Stack, TextField } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useState } from 'react';
 
@@ -10,10 +10,10 @@ function SearchInput({ fullWidth, size }: SearchInputProps) {
   const [value, setValue] = useState('');
 
   return (
-    <Box
+    <Stack
+      direction="row"
       sx={{
         position: 'relative',
-        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         width: 1,
@@ -36,21 +36,15 @@ function SearchInput({ fullWidth, size }: SearchInputProps) {
         variant="filled"
         size={size}
         sx={{
-          //   display: { xs: 'none', md: 'block' },
-          //   width: '100%',
-          //   height: '100%',
           '& .MuiFilledInput-root': {
             borderRadius: 40,
           },
-          //   pl: '56px',
-          //   pr: 1,
-          //   py: 1,
           '&::placeholder': {
             color: 'text.secondary',
           },
         }}
       />
-    </Box>
+    </Stack>
   );
 }
 

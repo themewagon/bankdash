@@ -29,32 +29,14 @@ const SignupPage = () => {
           </Typography>
 
           <Stack direction="row" spacing={2}>
-            <Button
-              fullWidth
-              size="large"
-              color="neutral"
-              variant="outlined"
-              //   sx={{ borderColor: alpha(theme.palette.grey[500], 0.16) }}
-            >
+            <Button fullWidth size="large" color="neutral" variant="outlined">
               <IconifyIcon icon="eva:google-fill" color="error.main" />
             </Button>
-            <Button
-              fullWidth
-              size="large"
-              color="neutral"
-              variant="outlined"
-              //   sx={{ borderColor: alpha(theme.palette.grey[500], 0.16) }}
-            >
+            <Button fullWidth size="large" color="neutral" variant="outlined">
               <IconifyIcon icon="gg:facebook" color="primary.main" />
             </Button>
 
-            <Button
-              fullWidth
-              size="large"
-              color="neutral"
-              variant="outlined"
-              //   sx={{ borderColor: alpha(theme.palette.grey[500], 0.16) }}
-            >
+            <Button fullWidth size="large" color="neutral" variant="outlined">
               <IconifyIcon icon="logos:twitter" />
             </Button>
           </Stack>

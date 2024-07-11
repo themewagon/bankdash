@@ -1,5 +1,5 @@
-import { Drawer, List, Toolbar, Typography } from '@mui/material';
-import Image from 'components/base/Image';
+import { Drawer, List, Toolbar } from '@mui/material';
+import Logo from 'components/common/Logo';
 import { menuLinks } from 'layouts/main-layout/sidebar/MenuLinks';
 import MenuListItem from 'layouts/main-layout/sidebar/MenuListItem';
 import SimpleBar from 'simplebar-react';
@@ -35,9 +35,8 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
         },
       }}
     >
-      <Toolbar sx={{ gap: 1, minHeight: 100 }}>
-        <Image src="/bankdash.svg" alt="Logo" sx={{ width: 36 }} />
-        <Typography variant="h2">Bankdash.</Typography>
+      <Toolbar sx={{ gap: 1, minHeight: 100, cursor: 'pointer' }}>
+        <Logo />
       </Toolbar>
 
       <SimpleBar style={{ maxHeight: 'calc(100vh - 100px)' }}>

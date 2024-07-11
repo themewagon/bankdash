@@ -37,10 +37,8 @@ const SendAmountInput = () => {
                 sx={{
                   borderRadius: 'inherit',
                   minWidth: { xs: 80, sm: 120 },
-                  //   py: { xs: 1.5, md: 2 },
                 }}
                 endIcon={<IconifyIcon icon="ph:telegram-logo" color="common.white" />}
-                //   sx={{ px: 3, py: 1.75 }}
               >
                 Send
               </Button>
@@ -55,10 +53,7 @@ const SendAmountInput = () => {
             borderRadius: 40,
           },
           '& .MuiInputAdornment-root': {
-            // backgroundColor: theme.palette.primary.main,
-            // overflow: 'hidden',
             borderRadius: 40,
-            // justifyContent: 'center',
           },
 
           '&::placeholder': {

@@ -56,7 +56,7 @@ const TransactionCard = () => {
                   borderRadius: '50%',
                 }}
               >
-                <IconComponent />
+                <IconComponent sx={{ mb: 0.75 }} />
               </Stack>
               <Stack
                 direction="row"

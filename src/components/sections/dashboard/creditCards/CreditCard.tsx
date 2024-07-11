@@ -1,4 +1,4 @@
-import { Box, Card, Grid, Palette, Stack, Typography, useTheme } from '@mui/material';
+import { Card, Grid, Palette, Stack, Typography, useTheme } from '@mui/material';
 import BankLogoAlt from 'assets/bank-logo-alt.svg';
 import BankLogo from 'assets/bank-logo.svg';
 import ChipCardBlack from 'assets/chip_black.png';
@@ -71,8 +71,8 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
       }}
     >
       <Stack sx={{ gap: 4, px: { xs: 2.5, md: 3 }, pt: 3, pb: { xs: 2, md: 3 } }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Box>
+        <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
             <Typography
               sx={{
                 color: labelColor,
@@ -85,9 +85,9 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
             <Typography sx={{ typography: { xs: 'body2', md: 'h4' } }}>
               {currencyFormat(Number(balance))}
             </Typography>
-          </Box>
+          </div>
           <Image src={chipCard} alt="chip-card" sx={{ width: { xs: 30, md: 35 } }} />
-        </Box>
+        </Stack>
         <Grid container spacing={5}>
           <Grid item xs={6}>
             <Stack sx={{ gap: 0.5 }}>

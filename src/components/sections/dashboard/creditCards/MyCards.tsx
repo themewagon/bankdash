@@ -57,7 +57,7 @@ const MyCards = () => {
         </Typography>
       </Stack>
       <SimpleBar style={{ maxWidth: '100%', overflowX: 'auto' }}>
-        <Stack direction="row" justifyContent="space-between" gap={4} sx={{ minWidth: '800px' }}>
+        <Stack direction="row" justifyContent="space-between" gap={4} sx={{ minWidth: 800 }}>
           {cardData.map((card) => (
             <CreditCard key={card.id} theme={card.theme} cardData={card.data} />
           ))}

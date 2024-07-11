@@ -154,7 +154,6 @@ const InvoiceOverviewTable = () => {
           rows={items}
           columns={columns}
           disableRowSelectionOnClick
-          //   getRowHeight={() => 'auto'}
           pageSizeOptions={[5, 10, 25]}
           initialState={{ pagination: { paginationModel: { pageSize: 5 } } }}
           slots={{

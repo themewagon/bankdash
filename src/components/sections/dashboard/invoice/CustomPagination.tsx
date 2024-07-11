@@ -37,6 +37,7 @@ const Next = () => (
     <IconifyIcon icon="lets-icons:expand-right" />
   </Stack>
 );
+
 const CustomPagination = () => {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);

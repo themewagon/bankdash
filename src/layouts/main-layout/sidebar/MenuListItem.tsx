@@ -48,7 +48,6 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
           borderRadius: 2,
           color: isActive ? 'primary.main' : 'action.disabled',
           transition: 'color 0.5s ease',
-
           '&:hover, &:focus': {
             backgroundColor: 'neutral.light',
             color: !menuItem.available ? 'action.disabled' : 'primary.main',

@@ -42,10 +42,10 @@ const ProfileDropdown = () => {
           src={ProfileImage}
           slotProps={{
             img: {
-              style: {
+              sx: {
                 objectFit: 'cover',
                 position: 'absolute',
-                top: '70%',
+                top: '75%',
                 left: '30%',
                 transform: 'translate(-50%, -50%) scale(1.5)',
               },

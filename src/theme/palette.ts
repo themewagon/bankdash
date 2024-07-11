@@ -26,6 +26,7 @@ declare module '@mui/material/styles' {
     blueGradient: string;
     whiteGradient: string;
     whiteCardGradient: string;
+    bgGradient: string;
   }
 }
 
@@ -86,6 +87,7 @@ const palette: PaletteOptions = {
     whiteGradient: 'linear-gradient(to bottom, rgba(255, 255, 255, .1) 0%, transparent)',
     whiteCardGradient:
       'linear-gradient(to bottom right, rgba(255, 255, 255, 0.15) 0%, transparent)',
+    bgGradient: 'linear-gradient(to right bottom, #f9fafb, #E6EFF5)',
   },
 };
 

@@ -1,20 +1,20 @@
-import { Box, Link, Toolbar, Typography } from '@mui/material';
-import Image from 'components/base/Image';
+import { Link, Stack, Theme, Toolbar } from '@mui/material';
+import Logo from 'components/common/Logo';
 import { Outlet } from 'react-router-dom';
 
 const AuthLayout = () => {
   return (
-    <Box
-      position="relative"
+    <Stack
+      direction="row"
       sx={{
-        display: 'flex',
+        position: 'relative',
         minHeight: '100vh',
         bgcolor: 'background.default',
         placeItems: 'center',
         flexGrow: 1,
         width: 1,
         justifyContent: 'center',
-        background: 'linear-gradient(to right bottom, #f9fafb, #E6EFF5)',
+        background: (theme: Theme) => theme.palette.gradients['bgGradient'],
         p: 4,
       }}
     >
@@ -28,11 +28,11 @@ const AuthLayout = () => {
         }}
       >
         <Link href="/" sx={{ display: 'flex', gap: 2 }}>
-          <Image src="/bankdash.svg" alt="Logo" sx={{ width: 36 }} />
-          <Typography variant="h2">Bankdash.</Typography>
+          <Logo />
         </Link>
       </Toolbar>
-      <Box
+      <Stack
+        direction="row"
         sx={{
           mt: { xs: 5, sm: 4, md: 3 },
           width: '100%',
@@ -41,8 +41,8 @@ const AuthLayout = () => {
         }}
       >
         <Outlet />
-      </Box>
-    </Box>
+      </Stack>
+    </Stack>
   );
 };
 

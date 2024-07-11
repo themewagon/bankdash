@@ -1,7 +1,6 @@
 import { Box, Grid } from '@mui/material';
 import WeeklyActivity from 'components/sections/dashboard/activity/WeeklyActivity';
 import BalanceHistory from 'components/sections/dashboard/balance/BalanceHistory';
-
 import MyCards from 'components/sections/dashboard/creditCards/MyCards';
 import ExpenseStatistics from 'components/sections/dashboard/expense/ExpenseStatistics';
 import InvoiceOverviewTable from 'components/sections/dashboard/invoice/InvoiceOverviewTable';
