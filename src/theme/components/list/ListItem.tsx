@@ -2,8 +2,6 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const ListItemComponent: Components<Omit<Theme, 'components'>>['MuiListItem'] = {
-  defaultProps: {},
-
   styleOverrides: {
     root: ({ theme }) => ({
       paddingTop: 0,

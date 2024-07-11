@@ -16,7 +16,8 @@ const LinkComponent: Components<Omit<Theme, 'components'>>['MuiLink'] = {
     root: ({ theme }) => ({
       color: theme.palette.text.primary,
       '&:hover': {
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.lighter,
+        '& .MuiSvgIcon-root': { color: theme.palette.primary.main },
       },
     }),
   },

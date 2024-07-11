@@ -3,8 +3,9 @@ import { menuLinks, MenuLinkType } from 'layouts/main-layout/sidebar/MenuLinks';
 import { useLocation } from 'react-router-dom';
 interface MenuListProps {
   menuItem: MenuLinkType;
+  onDrawerClose?: () => void;
 }
-const MenuListItem = ({ menuItem }: MenuListProps) => {
+const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
   const { icon: Icon } = menuItem;
   const itemIcon = Icon ? (
     <Icon sx={{ width: { xs: 20, xl: 24 }, height: { xs: 20, xl: 24 } }} />
@@ -36,6 +37,7 @@ const MenuListItem = ({ menuItem }: MenuListProps) => {
     >
       <Link
         href={menuItem.link}
+        onClick={onDrawerClose}
         sx={{
           py: 1.5,
           px: 3,
@@ -43,14 +45,22 @@ const MenuListItem = ({ menuItem }: MenuListProps) => {
           alignItems: 'center',
           gap: 3.125,
           flex: 1,
+          borderRadius: 2,
           color: isActive ? 'primary.main' : 'action.disabled',
           transition: 'color 0.5s ease',
+
+          '&:hover, &:focus': {
+            backgroundColor: 'neutral.light',
+            color: !menuItem.available ? 'action.disabled' : 'primary.main',
+            '& .MuiSvgIcon-root': {
+              color: !menuItem.available ? 'action.disabled' : 'primary.main',
+            },
+          },
         }}
       >
         <ListItemIcon
           sx={{
             minWidth: 'auto',
-
             color: isActive ? 'primary.main' : 'action.disabled',
           }}
         >
@@ -58,7 +68,7 @@ const MenuListItem = ({ menuItem }: MenuListProps) => {
         </ListItemIcon>
         <ListItemText
           primary={
-            <Typography sx={{ typography: { sm: 'body1', xl: 'h6' }, textTransform: 'capitalize' }}>
+            <Typography sx={{ typography: { xs: 'body1', xl: 'h6' }, textTransform: 'capitalize' }}>
               {menuItem.title}
             </Typography>
           }

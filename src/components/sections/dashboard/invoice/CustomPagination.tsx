@@ -5,7 +5,38 @@ import {
   useGridApiContext,
   useGridSelector,
 } from '@mui/x-data-grid';
+import IconifyIcon from 'components/base/IconifyIcon';
+import { ChangeEvent } from 'react';
 
+const Prev = () => (
+  <Stack direction="row" spacing={0.15} sx={{ alignItems: 'center' }}>
+    <IconifyIcon icon="lets-icons:expand-left" />
+    <Typography
+      color="primary"
+      fontWeight="medium"
+      sx={{
+        fontSize: { xs: 'caption.fontSize', md: 'body1.fontSize' },
+      }}
+    >
+      Previous
+    </Typography>
+  </Stack>
+);
+
+const Next = () => (
+  <Stack direction="row" spacing={0.15} sx={{ alignItems: 'center' }}>
+    <Typography
+      color="primary"
+      fontWeight="medium"
+      sx={{
+        fontSize: { xs: 'caption.fontSize', md: 'body1.fontSize' },
+      }}
+    >
+      Next
+    </Typography>
+    <IconifyIcon icon="lets-icons:expand-right" />
+  </Stack>
+);
 const CustomPagination = () => {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);
@@ -16,7 +47,7 @@ const CustomPagination = () => {
       sx={{
         justifyContent: 'space-between',
         alignItems: 'end',
-        p: 2.5,
+        py: 1.5,
         mt: 1.25,
       }}
     >
@@ -24,30 +55,18 @@ const CustomPagination = () => {
         shape="rounded"
         page={page + 1}
         count={pageCount}
-        onChange={(event: React.ChangeEvent<unknown>, value: number) =>
-          apiRef.current.setPage(value - 1)
-        }
+        onChange={(event: ChangeEvent<unknown>, value: number) => apiRef.current.setPage(value - 1)}
         color="primary"
+        sx={{
+          flex: 1,
+          px: 0,
+        }}
         renderItem={(item) => (
           <PaginationItem
             {...item}
             slots={{
-              previous: () => (
-                <Typography variant="caption" color="primary" fontSize={15} fontWeight="medium">
-                  Previous
-                </Typography>
-              ),
-              next: () => (
-                <Typography
-                  color="primary"
-                  variant="caption"
-                  fontSize={15}
-                  fontWeight="medium"
-                  sx={{ pr: 0 }}
-                >
-                  Next
-                </Typography>
-              ),
+              previous: Prev,
+              next: Next,
             }}
           />
         )}

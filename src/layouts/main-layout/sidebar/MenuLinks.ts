@@ -5,6 +5,8 @@ import InvestIcon from 'components/icons/menu-icons/InvestIcon';
 import LoanIcon from 'components/icons/menu-icons/LoanIcon';
 import ServiceIcon from 'components/icons/menu-icons/ServiceIcon';
 import SettingsIcon from 'components/icons/menu-icons/SettingsIcon';
+import SignInIcon from 'components/icons/menu-icons/SignInIcon';
+import SignUpIcon from 'components/icons/menu-icons/SignUpIcon';
 import TransferIcon from 'components/icons/menu-icons/TransferIcon';
 import UserIcon from 'components/icons/menu-icons/UserIcon';
 
@@ -17,6 +19,10 @@ export enum linkEnum {
   Loans = 'loans',
   Services = 'Services',
   Setting = 'Setting',
+  Login = 'login',
+  Signup = 'sign-up',
+  ForgetPassword = 'forget-password',
+  ResetPassword = 'reset-password',
 }
 
 export interface MenuLinkType {
@@ -24,6 +30,7 @@ export interface MenuLinkType {
   title: string;
   link: string;
   icon?: (props: SvgIconProps) => JSX.Element;
+  available: boolean;
 }
 export const menuLinks: MenuLinkType[] = [
   {
@@ -31,47 +38,82 @@ export const menuLinks: MenuLinkType[] = [
     title: linkEnum.Dashboard,
     link: '/',
     icon: HomeIcon,
+    available: true,
   },
   {
     id: 2,
     title: linkEnum.Transactions,
-    link: '/transactions',
+    link: '#!',
     icon: TransferIcon,
+    available: false,
   },
   {
     id: 3,
     title: linkEnum.Accounts,
-    link: '/accounts',
+    link: '#!',
     icon: UserIcon,
+    available: false,
   },
   {
     id: 4,
     title: linkEnum.Investments,
-    link: '/investments',
+    link: '#!',
     icon: InvestIcon,
+    available: false,
   },
   {
     id: 5,
     title: linkEnum.Credit,
-    link: '/credit-cards',
+    link: '#!',
     icon: CreditCardIcon,
+    available: false,
   },
   {
     id: 6,
     title: linkEnum.Loans,
-    link: '/loans',
+    link: '#!',
     icon: LoanIcon,
+    available: false,
   },
   {
     id: 7,
     title: linkEnum.Services,
     link: '#!',
     icon: ServiceIcon,
+    available: false,
   },
   {
     id: 8,
     title: linkEnum.Setting,
     link: '#!',
     icon: SettingsIcon,
+    available: false,
   },
+  {
+    id: 9,
+    title: linkEnum.Login,
+    link: '/authentication/login',
+    icon: SignInIcon,
+    available: true,
+  },
+  {
+    id: 10,
+    title: linkEnum.Signup,
+    link: '/authentication/sign-up',
+    icon: SignUpIcon,
+    available: true,
+  },
+  //   {
+  //     id: 11,
+  //     title: linkEnum.ForgetPassword,
+  //     link: '/authentication/forget-password',
+  //     icon: SignUpIcon,
+  //     available: true,
+  //   },
+  //   {
+  //     id: 12,
+  //     title: linkEnum.ResetPassword,
+  //     link: '/authentication/reset-password',
+  //     icon: SignUpIcon,
+  //   },
 ];

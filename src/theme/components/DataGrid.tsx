@@ -38,6 +38,7 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
         position: 'absolute',
         top: 0,
         height: '100% !important',
+        zIndex: -1,
       },
     }),
     withBorderColor: ({ theme }) => ({
@@ -47,7 +48,10 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
     main: ({ theme }) => ({
       borderBottomRightRadius: theme.shape.borderRadius * 6.25,
       borderBottomLeftRadius: theme.shape.borderRadius * 6.25,
-      background: theme.palette.common.white,
+      background: theme.palette.action.hover,
+      [theme.breakpoints.up('md')]: {
+        background: theme.palette.common.white,
+      },
       paddingLeft: theme.spacing(3.75),
       paddingRight: theme.spacing(3.75),
       paddingTop: theme.spacing(2),
@@ -57,8 +61,11 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       ...theme.typography.body2,
       fontWeight: '800 !important',
       color: theme.palette.primary.light,
-      backgroundColor: theme.palette.common.white,
-      '&--sorted': { color: theme.palette.text.primary },
+      backgroundColor: theme.palette.action.hover,
+      [theme.breakpoints.up('md')]: {
+        backgroundColor: theme.palette.common.white,
+      },
+      '&--sorted': { color: theme.palette.primary.dark },
       paddingLeft: theme.spacing(0.25),
       paddingRight: theme.spacing(0.25),
       height: 'var(--DataGrid-headerHeight) !important',

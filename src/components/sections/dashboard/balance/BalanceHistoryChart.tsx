@@ -1,5 +1,6 @@
-import { SxProps, useTheme } from '@mui/material';
+import { alpha, SxProps, useTheme } from '@mui/material';
 import ReactEchart from 'components/base/ReactEchart';
+import { BalanceDataType } from 'data/balance-chart';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { LineChart, LineSeriesOption } from 'echarts/charts';
 import {
@@ -24,28 +25,32 @@ echarts.use([LineChart, LegendComponent, CanvasRenderer, GridComponent]);
 interface BalanceHistoryChartProps {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
   sx?: SxProps;
+  seriesData: BalanceDataType;
 }
 const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) => {
   const theme = useTheme();
+  const { palette } = theme;
+  const { seriesData } = rest;
+
   const chartOptions: ECOption = useMemo(() => {
+    const xAxisData = seriesData.map((item) => item.month);
+    const balanceData = seriesData.map((item) => item.value);
     return {
       grid: {
         left: '1%',
         top: '5%',
-        right: '2.2%',
+        right: '4.2%',
         bottom: '6%',
         containLabel: true,
       },
       xAxis: {
         type: 'category',
-        data: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        data: xAxisData,
         boundaryGap: false,
-
         axisLabel: {
-          interval: 0,
           padding: 1,
           align: 'left',
-          color: '#718EBF',
+          color: palette.primary.light,
           fontSize: 13,
           overflow: 'truncate',
         },
@@ -54,7 +59,7 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
         splitLine: {
           show: true,
           lineStyle: {
-            color: '#DFE5EE',
+            color: palette.text.disabled,
             type: 'dashed',
           },
         },
@@ -63,7 +68,7 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
         type: 'value',
         axisLabel: {
           padding: 5,
-          color: '#718EBF',
+          color: palette.primary.light,
           fontSize: 13,
         },
         axisLine: { show: false },
@@ -71,7 +76,7 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
         splitLine: {
           show: true,
           lineStyle: {
-            color: '#DFE5EE',
+            color: palette.text.disabled,
             type: 'dashed',
           },
         },
@@ -81,12 +86,11 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
         trigger: 'axis',
         formatter: '{b}: ${c}',
       },
-      color: '#2D60FF',
+      color: alpha(palette.primary.main, 0.25),
       series: [
         {
-          color: 'rgb(24, 20, 243)',
-          data: [90, 200, 120, 225, 480, 310, 220, 332, 144, 220, 110, 490],
-
+          color: palette.primary.main,
+          data: balanceData,
           type: 'line',
           smooth: true,
           symbol: 'none',
@@ -97,12 +101,12 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
               {
                 offset: 0,
-                color: '#2D60FF',
+                color: alpha(palette.primary.main, 0.25),
               },
 
               {
                 offset: 1,
-                color: '#fff',
+                color: palette.common.white,
               },
             ]),
             opacity: 0.25,
@@ -110,14 +114,19 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
         },
       ],
     };
-  }, [theme]);
+  }, [theme, seriesData]);
   return (
     <ReactEchart
       echarts={echarts}
       option={chartOptions}
       ref={chartRef}
+      sx={{
+        width: 1,
+        height: 1,
+        maxHeight: 240,
+        minWidth: 1,
+      }}
       {...rest}
-      sx={{ display: 'flex', flex: 1, width: 1, height: 240, minWidth: 1, minHeight: 240 }}
     />
   );
 };

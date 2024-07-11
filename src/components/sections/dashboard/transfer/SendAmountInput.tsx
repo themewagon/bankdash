@@ -1,19 +1,27 @@
 import { Button, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
+import { useBreakpoints } from 'providers/useBreakpoints';
 
 const SendAmountInput = () => {
+  const { up } = useBreakpoints();
+  const upMd = up('md');
   return (
     <Stack
       direction="row"
-      gap={3}
       sx={{
         justifyContent: 'space-between',
         alignItems: 'center',
         width: 1,
         px: 0.5,
+        gap: { xs: 1.5, sm: 3 },
       }}
     >
-      <Typography variant="body2" fontWeight="regular" color="text.secondary" whiteSpace="nowrap">
+      <Typography
+        fontWeight="regular"
+        color="text.secondary"
+        whiteSpace="nowrap"
+        sx={{ typography: { xs: 'caption', md: 'body2' } }}
+      >
         Write Amount
       </Typography>
       <TextField
@@ -25,12 +33,13 @@ const SendAmountInput = () => {
                 variant="contained"
                 color="primary"
                 type="submit"
+                size={upMd ? 'large' : 'medium'}
                 sx={{
                   borderRadius: 'inherit',
-                  minWidth: 120,
-                  py: 1.5,
+                  minWidth: { xs: 80, sm: 120 },
+                  //   py: { xs: 1.5, md: 2 },
                 }}
-                endIcon={<IconifyIcon icon="ph:telegram-logo" color="common.white" width={24} />}
+                endIcon={<IconifyIcon icon="ph:telegram-logo" color="common.white" />}
                 //   sx={{ px: 3, py: 1.75 }}
               >
                 Send
@@ -38,18 +47,18 @@ const SendAmountInput = () => {
             </InputAdornment>
           ),
         }}
+        size={upMd ? 'medium' : 'small'}
         variant="filled"
-        sx={(theme) => ({
+        sx={() => ({
           '& .MuiFilledInput-root': {
             paddingRight: 0,
             borderRadius: 40,
           },
           '& .MuiInputAdornment-root': {
-            backgroundColor: theme.palette.primary.main,
-            p: 3,
-            overflow: 'hidden',
+            // backgroundColor: theme.palette.primary.main,
+            // overflow: 'hidden',
             borderRadius: 40,
-            justifyContent: 'center',
+            // justifyContent: 'center',
           },
 
           '&::placeholder': {

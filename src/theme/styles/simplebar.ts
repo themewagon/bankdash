@@ -6,12 +6,12 @@ const simplebar = (theme: Theme) => ({
       '& .simplebar-scrollbar': {
         '&:before': {
           cursor: 'grab',
-          backgroundColor: theme.palette.primary.light,
+          backgroundColor: theme.palette.neutral.main,
         },
 
         '&.simplebar-visible': {
           '&:before': {
-            opacity: 1,
+            opacity: 0.9,
           },
         },
       },
@@ -20,7 +20,7 @@ const simplebar = (theme: Theme) => ({
       '& .simplebar-scrollbar': {
         '&:before': {
           cursor: 'grab',
-          backgroundColor: theme.palette.primary.light,
+          backgroundColor: theme.palette.neutral.main,
         },
       },
     },

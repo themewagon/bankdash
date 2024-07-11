@@ -1,8 +1,10 @@
 import { createTheme, Shadows } from '@mui/material';
 import AppBarComponent from 'theme/components/AppBar';
+import AvatarComponent from 'theme/components/Avatar';
 import ButtonComponent from 'theme/components/Button';
 import ButtonBaseComponent from 'theme/components/ButtonBase';
 import CardComponent from 'theme/components/Card';
+import CardContentComponent from 'theme/components/CardContent';
 import CssBaselineComponent from 'theme/components/CssBaseline';
 import DataGridComponent from 'theme/components/DataGrid';
 import DrawerComponent from 'theme/components/Drawer';
@@ -15,7 +17,11 @@ import OutlinedInputComponent from 'theme/components/form/OutlinedInput';
 import IconButtonComponent from 'theme/components/IconButton';
 import LinkComponent from 'theme/components/Link';
 import ListItemComponent from 'theme/components/list/ListItem';
+import ListItemTextComponent from 'theme/components/list/ListItemText';
+import MenuComponent from 'theme/components/list/Menu';
 import PaginationComponent from 'theme/components/Pagination';
+import TabComponent from 'theme/components/Tab';
+import TabsComponent from 'theme/components/Tabs';
 import ToolbarComponent from 'theme/components/Toolbar';
 import TouchRippleComponent from 'theme/components/TouchRipple';
 // import type {} from '@mui/x-data-grid/themeAugmentation';
@@ -29,9 +35,11 @@ export const theme = createTheme({
   shadows: [...shadows] as Shadows,
   components: {
     MuiAppBar: AppBarComponent,
+    MuiAvatar: AvatarComponent,
     MuiButton: ButtonComponent,
     MuiButtonBase: ButtonBaseComponent,
     MuiCard: CardComponent,
+    MuiCardContent: CardContentComponent,
     MuiCssBaseline: CssBaselineComponent,
     MuiDataGrid: DataGridComponent,
     MuiDrawer: DrawerComponent,
@@ -43,8 +51,12 @@ export const theme = createTheme({
     MuiInputAdornment: InputAdornmentComponent,
     MuiLink: LinkComponent,
     MuiListItem: ListItemComponent,
+    MuiListItemText: ListItemTextComponent,
+    MuiMenu: MenuComponent,
     MuiOutlinedInput: OutlinedInputComponent,
     MuiPagination: PaginationComponent,
+    MuiTab: TabComponent,
+    MuiTabs: TabsComponent,
     MuiToolbar: ToolbarComponent,
     MuiTouchRipple: TouchRippleComponent,
   },

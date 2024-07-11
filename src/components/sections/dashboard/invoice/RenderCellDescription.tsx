@@ -12,13 +12,19 @@ const RenderCellDescription = ({ params }: ParamsProps) => {
   return (
     <Stack direction="row" alignItems="center" gap={1} sx={{ py: 2, width: 1 }}>
       {params.row.description.revenue === 'down' ? (
-        <Image src={DataGriIncrementArrow} alt="expense" width={30} height={30} />
+        <Image
+          src={DataGriIncrementArrow}
+          alt="expense"
+          sx={{ width: { xs: 18, lg: 30 }, height: { xs: 18, lg: 30 } }}
+        />
       ) : (
-        <Image src={DataGridDecrementArrow} alt="income" width={30} height={30} />
+        <Image
+          src={DataGridDecrementArrow}
+          alt="income"
+          sx={{ width: { xs: 18, lg: 30 }, height: { xs: 18, lg: 30 } }}
+        />
       )}
-      <Typography variant="body2" fontWeight="regular">
-        {params.row.description.title}
-      </Typography>
+      <Typography>{params.row.description.title}</Typography>
     </Stack>
   );
 };

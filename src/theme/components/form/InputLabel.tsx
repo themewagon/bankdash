@@ -4,12 +4,12 @@ import { Components } from '@mui/material/styles/components';
 const InputLabelComponent: Components<Omit<Theme, 'components'>>['MuiInputLabel'] = {
   defaultProps: { shrink: true },
   styleOverrides: {
-    root: () => ({
+    root: ({ theme }) => ({
       position: 'relative',
       //   transform: 'translate(0px, 0px) scale(0.75)',
-      //   color: theme.palette.text.secondary,
+      color: theme.palette.text.primary,
       //   paddingLeft: theme.spacing(0),
-      //   paddingBottom: theme.spacing(0.6),
+      paddingBottom: theme.spacing(0.6),
       //   paddingRight: 1,
       //   '& +.MuiInputBase-root': {
       //     marginTop: 0, // Remove Margin Top of The MuiInput right after  a label

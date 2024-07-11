@@ -2,22 +2,41 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 import pxToRem from 'theme/functions/pxToRem';
 
+declare module '@mui/material' {
+  interface ButtonPropsColorOverrides {
+    neutral: true;
+  }
+}
+
 const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
+      ...theme.typography.button,
       '&.Mui-disabled': {
         backgroundColor: theme.palette.action.disabled,
         boxShadow: 'none',
         color: theme.palette.text.disabled,
       },
+      '&:hover': {
+        boxShadow: theme.shadows[5],
+      },
     }),
+
     outlined: ({ theme }) => ({
       ...theme.typography.caption,
       fontWeight: theme.typography.fontWeightMedium,
-      paddingTop: pxToRem(8),
-      paddingBottom: pxToRem(8),
+      paddingTop: theme.spacing(1),
+      paddingBottom: theme.spacing(1),
       borderRadius: theme.shape.borderRadius * 12.5,
+    }),
+    textPrimary: ({ theme }) => ({
+      '&:hover': {
+        backgroundColor: theme.palette.neutral.light,
+      },
+      '&.Mui-disabled': {
+        color: theme.palette.action.disabled,
+      },
     }),
     outlinedPrimary: ({ theme }) => ({
       color: theme.palette.primary.darker,
@@ -31,14 +50,26 @@ const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
         color: theme.palette.action.disabled,
       },
     }),
-    sizeMedium: {
+    sizeSmall: ({ theme }) => ({
+      ...theme.typography.button,
+      lineHeight: 1.5,
+      paddingLeft: pxToRem(11),
+      paddingRight: pxToRem(11),
+    }),
+    sizeMedium: ({ theme }) => ({
+      fontSize: theme.typography.pxToRem(15),
+      lineHeight: 1.6,
+      paddingTop: pxToRem(7),
+      paddingBottom: pxToRem(7),
       paddingLeft: pxToRem(14),
       paddingRight: pxToRem(14),
-    },
-    sizeLarge: {
-      paddingLeft: pxToRem(24),
-      paddingRight: pxToRem(24),
-    },
+    }),
+    sizeLarge: ({ theme }) => ({
+      fontSize: theme.typography.pxToRem(18),
+      lineHeight: 1.8,
+      paddingLeft: theme.spacing(3),
+      paddingRight: theme.spacing(3),
+    }),
   },
 };
 

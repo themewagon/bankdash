@@ -33,13 +33,13 @@ const typography: TypographyOptions = {
   fontWeightExtraBold: 800,
   h1: {
     fontWeight: 600,
-    fontSize: pxToRem(28),
-    lineHeight: pxToRem(34),
+    fontSize: pxToRem(28), // 28 px
+    lineHeight: 1.2143, // 34px
   },
   h2: {
-    fontWeight: 900,
-    fontSize: pxToRem(25),
-    lineHeight: pxToRem(32),
+    fontWeight: 600,
+    fontSize: pxToRem(25), // 25 px
+    lineHeight: 1.2, // 30 px
   },
   h3: {
     fontWeight: 600,
@@ -59,12 +59,12 @@ const typography: TypographyOptions = {
   h6: {
     fontWeight: 500,
     fontSize: pxToRem(18), // 18px
-    lineHeight: 1.2222, //22px
+    lineHeight: 1.2222, // 22px
   },
   subtitle1: {
-    fontWeight: 400,
-    fontSize: '1rem',
-    lineHeight: 1.3,
+    fontWeight: 600,
+    fontSize: pxToRem(14), // 14px
+    lineHeight: 1.2143, // 17 px
   },
   subtitle2: {
     fontWeight: 400,
@@ -77,13 +77,13 @@ const typography: TypographyOptions = {
   },
   body2: {
     fontWeight: 500,
-    fontSize: '16px', // 16px
+    fontSize: pxToRem(16), // 16px
     lineHeight: 1.1875, // 19px
   },
   button: {
     fontWeight: 500,
-    fontSize: '16px', // 16px
-    lineHeight: 1.1875, // 19px
+    fontSize: pxToRem(13), // 13px
+    lineHeight: 1.2308, // 16px
     textTransform: 'capitalize',
   },
   caption: {
@@ -93,9 +93,8 @@ const typography: TypographyOptions = {
   },
   overline: {
     fontWeight: 400,
-    fontSize: '0.75rem',
-    lineHeight: 1.2,
-    textTransform: 'uppercase',
+    fontSize: pxToRem(10), // 10px
+    lineHeight: 1.2, // 12px
   },
 };
 

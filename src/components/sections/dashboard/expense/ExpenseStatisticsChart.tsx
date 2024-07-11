@@ -1,5 +1,6 @@
 import { SxProps, useTheme } from '@mui/material';
 import ReactEchart from 'components/base/ReactEchart';
+import { ExpenseDataType } from 'data/expense-chart';
 import { PieSeriesOption } from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { PieChart } from 'echarts/charts';
@@ -23,101 +24,88 @@ echarts.use([PieChart, LegendComponent, CanvasRenderer, GridComponent]);
 interface ExpenseStatisticsChartProps {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
   sx?: SxProps;
+  seriesData: ExpenseDataType;
 }
 const ExpenseStatisticsChart = ({ chartRef, ...rest }: ExpenseStatisticsChartProps) => {
+  const { seriesData } = rest;
   const theme = useTheme();
+  const { palette } = theme;
   const chartOptions: ECOption = useMemo(() => {
     return {
-      backgroundColor: '#fff',
+      backgroundColor: palette.common.white,
 
       tooltip: {
         trigger: 'item',
       },
 
-      color: ['#343C6A', '#1814F3', '#FA00FF', '#FC7900'],
+      color: [
+        palette.primary.darker,
+        palette.primary.main,
+        palette.secondary.main,
+        palette.warning.main,
+      ],
       series: [
         {
           name: 'Expense',
           type: 'pie',
           selectedMode: 'series',
           selectedOffset: 5,
-          radius: [0, 145],
+          radius: '95%',
           center: ['45%', '45%'],
           roseType: 'radius',
           avoidLabelOverlap: false,
 
           //   radius: '95%',
-          data: [
-            { value: 25, name: 'Investment', selected: true },
-            { value: 30, name: 'Entertainment', selected: true },
-            { value: 25, name: 'Bill Expense', selected: true },
-            { value: 20, name: 'Others', selected: true },
-          ],
+          data: seriesData,
           label: {
             show: true,
             position: 'inside',
-            formatter: '{d}%\n{b}',
-            color: '#fff',
+            formatter: function (params) {
+              return `{percent|${params.percent}%}\n{name|${params.name}}`;
+            },
+            rich: {
+              percent: {
+                fontSize: 16,
+                fontWeight: 'bold',
+                color: palette.common.white,
+              },
+              name: {
+                fontSize: 13,
+                fontWeight: 'bold',
+                color: palette.common.white,
+              },
+            },
+            color: palette.common.white,
             fontSize: 13,
             fontWeight: 'bold',
             padding: [0, 0, 0],
           },
           emphasis: {
             itemStyle: {
-              borderColor: '#fff',
+              borderColor: palette.common.white,
             },
           },
+
+          animationType: 'expansion',
+          animationEasing: 'backOut',
+          animationDuration: 1000,
         },
       ],
-      //   series: [
-      //     {
-      //       name: 'Access From',
-      //       type: 'pie',
-      //       radius: '55%',
-      //       center: ['50%', '50%'],
-      //       data: [
-      //         { value: 335, name: 'Direct' },
-      //         { value: 310, name: 'Email' },
-      //         { value: 274, name: 'Union Ads' },
-      //         { value: 235, name: 'Video Ads' },
-      //         { value: 40, name: 'Search Engine' },
-      //       ].sort(function (a, b) {
-      //         return a.value - b.value;
-      //       }),
-      //       roseType: 'radius',
-      //       label: {
-      //         color: 'rgba(255, 255, 255, 0.3)',
-      //       },
-      //       labelLine: {
-      //         lineStyle: {
-      //           color: 'rgba(255, 255, 255, 0.3)',
-      //         },
-      //         smooth: 0.2,
-      //         length: 10,
-      //         length2: 20,
-      //       },
-      //       itemStyle: {
-      //         color: '#c23531',
-      //         shadowBlur: 200,
-      //         shadowColor: 'rgba(0, 0, 0, 0.5)',
-      //       },
-      //       animationType: 'scale',
-      //       animationEasing: 'elasticOut',
-      //       animationDelay: function () {
-      //         return Math.random() * 200;
-      //       },
-      //     },
-      //   ],
     };
-  }, [theme]);
+  }, [theme, seriesData]);
 
   return (
     <ReactEchart
       echarts={echarts}
       option={chartOptions}
       ref={chartRef}
+      sx={{
+        width: 1,
+        height: 1,
+        maxHeight: 270,
+        minWidth: 1,
+      }}
       {...rest}
-      sx={{ display: 'flex', flex: 1, width: 1, height: 285, minWidth: 1, minHeight: 285 }}
     />
   );
 };

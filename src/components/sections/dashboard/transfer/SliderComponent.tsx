@@ -7,8 +7,6 @@ import Image3 from 'assets/profile/image-3.png';
 import Image4 from 'assets/profile/image-4.png';
 import Image5 from 'assets/profile/image-5.png';
 
-const cardWidth = 70; // Adjust card width as needed
-
 // import Swiper styles
 import 'swiper/css';
 // import Swiper core and required modules
@@ -20,21 +18,28 @@ import SlideItem from 'components/sections/dashboard/transfer/SlideItem';
 import { useBreakpoints } from 'providers/useBreakpoints';
 import { useState } from 'react';
 
+/* ------------------------- Carousel Data ---------------------------- */
 const ItemData = [
   { id: 1, image: Image3, name: 'Livia Bator', designation: 'CEO' },
   { id: 2, image: Image2, name: 'Randy Press', designation: 'Director' },
   { id: 3, image: Image1, name: 'Workman', designation: 'Designer' },
   { id: 4, image: Image4, name: 'Kevin Reed', designation: 'UX' },
   { id: 5, image: Image5, name: 'Charleen', designation: 'CTO' },
+  //   { id: 5, image: Image5, name: 'Sophia Clark', designation: 'Marketing Manager' },
+  //   { id: 6, image: Image3, name: 'Natalie', designation: 'Product Manager' },
+  //   { id: 7, image: Image1, name: 'Chris Evans', designation: 'Developer' },
 ];
+/* -------------------------------------------------------------------------- */
+const cardSize = { lg: 70, md: 50, sm: 50 }; // Adjust card size as needed
 
 const SliderComponent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { only } = useBreakpoints();
-  const isLaptop = only('md');
+  const isMd = only('md');
+  const isSm = only('sm');
 
   const totalSlides = ItemData.length;
-  const slidesPerView = isLaptop && totalSlides >= 5 ? 5 : 3;
+  const slidesPerView = (isMd && totalSlides >= 5) || (isSm && totalSlides >= 5) ? 5 : 3;
 
   const swiperProps: SwiperComponentProps['swiperProps'] = {
     navigation: { nextEl: '.arrow-left', prevEl: '.arrow-right' },
@@ -48,14 +53,14 @@ const SliderComponent = () => {
   };
 
   return (
-    <Stack gap={4} justifyContent="space-between" sx={{ px: 1.25, flex: 1 }}>
-      <Stack direction="row" sx={{ alignItems: 'center', mt: 2 }}>
+    <Stack gap={4} justifyContent="space-between" sx={{ flex: 1 }}>
+      <Stack direction="row" sx={{ alignItems: 'center', mt: 1 }}>
         {/** Slider main container */}
         <Box sx={{ overflow: 'hidden' }}>
           <ReactSwiper swiperProps={swiperProps}>
             {ItemData.map((item, index) => (
               <SwiperSlide key={item.id}>
-                <SlideItem data={item} cardSize={cardWidth} active={currentSlide === index} />
+                <SlideItem data={item} cardSize={cardSize} active={currentSlide === index} />
               </SwiperSlide>
             ))}
           </ReactSwiper>

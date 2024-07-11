@@ -1,4 +1,3 @@
-import NotFoundPage from 'pages/not-found/NotFoundPage';
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import paths, { rootPaths } from './path';
@@ -6,20 +5,21 @@ import paths, { rootPaths } from './path';
 /* ---------------- Lazy loads various components ------------------------- */
 const App = lazy(() => import('App'));
 const MainLayout = lazy(() => import('layouts/main-layout'));
-// const AuthLayout = lazy(() => import('layouts/auth-layout'));
+const AuthLayout = lazy(() => import('layouts/auth-layout'));
 const Dashboard = lazy(() => import('pages/dashboard'));
+const Spinner = lazy(() => import('components/loading/Splash'));
+const LoadingProgress = lazy(() => import('components/loading/LoadingProgress'));
 
-// const LoginPage = lazy(() => import('pages/authentication/login'));
-// const SignUpPage = lazy(() => import('pages/authentication/register'));
-// const ForgotPasswordPage = lazy(() => import('pages/authentication/forgot-password'));
-// const PasswordResetPage = lazy(() => import('pages/authentication/reset-password'));
+const LoginPage = lazy(() => import('pages/authentication/login'));
+const SignUpPage = lazy(() => import('pages/authentication/signup'));
+const ForgetPasswordPage = lazy(() => import('pages/authentication/forget-password'));
+const ResetPasswordPage = lazy(() => import('pages/authentication/reset-password'));
 const TransactionPage = lazy(() => import('pages/transactions'));
 const AccountPage = lazy(() => import('pages/accounts'));
 const CreditCardPage = lazy(() => import('pages/credit-cards'));
 const LoansPage = lazy(() => import('pages/loans'));
 const InvestmentPage = lazy(() => import('pages/investments'));
-
-// const NotFoundPage = lazy(() => import('pages/not-found'));
+const NotFoundPage = lazy(() => import('pages/not-found'));
 /* -------------------------------------------------------------------------- */
 
 /**
@@ -28,7 +28,7 @@ const InvestmentPage = lazy(() => import('pages/investments'));
 export const routes = [
   {
     element: (
-      <Suspense fallback={<>Loading splash</>}>
+      <Suspense fallback={<Spinner />}>
         <App />
       </Suspense>
     ),
@@ -37,7 +37,7 @@ export const routes = [
         path: paths.default,
         element: (
           <MainLayout>
-            <Suspense fallback={<>Loading pagelaoder</>}>
+            <Suspense fallback={<LoadingProgress />}>
               <Outlet />
             </Suspense>
           </MainLayout>
@@ -48,49 +48,49 @@ export const routes = [
             element: <Dashboard />,
           },
           {
-            path: '/transactions',
+            path: paths.transactions,
             element: <TransactionPage />,
           },
           {
-            path: '/credit-cards',
+            path: paths.creditCards,
             element: <CreditCardPage />,
           },
           {
-            path: '/accounts',
+            path: paths.accounts,
             element: <AccountPage />,
           },
           {
-            path: '/investments',
+            path: paths.investments,
             element: <InvestmentPage />,
           },
           {
-            path: '/loans',
+            path: paths.loans,
             element: <LoansPage />,
           },
         ],
       },
-      //   {
-      //     path: rootPaths.authRoot,
-      //     element: <AuthLayout />,
-      //     children: [
-      //       {
-      //         path: paths.login,
-      //         element: <LoginPage />,
-      //       },
-      //       {
-      //         path: paths.signup,
-      //         element: <SignUpPage />,
-      //       },
-      //       {
-      //         path: paths.forgotPassword,
-      //         element: <ForgotPasswordPage />,
-      //       },
-      //       {
-      //         path: paths.resetPassword,
-      //         element: <PasswordResetPage />,
-      //       },
-      //     ],
-      //   },
+      {
+        path: rootPaths.authRoot,
+        element: <AuthLayout />,
+        children: [
+          {
+            path: paths.login,
+            element: <LoginPage />,
+          },
+          {
+            path: paths.signup,
+            element: <SignUpPage />,
+          },
+          {
+            path: paths.forgetPassword,
+            element: <ForgetPasswordPage />,
+          },
+          {
+            path: paths.resetPassword,
+            element: <ResetPasswordPage />,
+          },
+        ],
+      },
       {
         path: rootPaths.errorRoot,
         children: [

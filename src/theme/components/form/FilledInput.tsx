@@ -18,7 +18,10 @@ const FilledInputComponent: Components<Omit<Theme, 'components'>>['MuiFilledInpu
       '&.Mui-focused, &:hover': {
         backgroundColor: theme.palette.background.paper,
       },
-      '&:-webkit-autofill': { borderRadius: theme.shape.borderRadius * 2.5 },
+      '&:-webkit-autofill': {
+        borderTopRightRadius: theme.shape.borderRadius * 2.5,
+        borderBottomRightRadius: theme.shape.borderRadius * 2.5,
+      },
     }),
     input: ({ theme }) => ({
       fontSize: theme.typography.pxToRem(15),
@@ -29,6 +32,19 @@ const FilledInputComponent: Components<Omit<Theme, 'components'>>['MuiFilledInpu
       paddingRight: theme.spacing(1.5),
       paddingBottom: theme.spacing(2),
       paddingLeft: theme.spacing(3),
+
+      '&:-webkit-autofill': {
+        borderTopRightRadius: theme.shape.borderRadius * 2.5,
+        borderTopLeftRadius: 0,
+        borderBottomRightRadius: theme.shape.borderRadius * 2.5,
+        // Add more custom styles here if needed
+      },
+    }),
+    inputSizeSmall: ({ theme }) => ({
+      fontSize: theme.typography.pxToRem(12),
+      height: pxToRem(15),
+      paddingTop: theme.spacing(1.5),
+      paddingBottom: theme.spacing(1.5),
     }),
     inputAdornedStart: ({ theme }) => ({ paddingLeft: theme.spacing(0) }),
   },

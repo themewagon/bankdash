@@ -1,7 +1,9 @@
-import { AppBar, Avatar, Box, IconButton, Stack, Toolbar, Typography } from '@mui/material';
-import ProfileImage from 'assets/avatar.jpg';
+import { AppBar, Box, IconButton, Stack, Toolbar, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
+import NotificationDropdown from 'layouts/main-layout/navbar/NotificationDropdown';
+import ProfileDropdown from 'layouts/main-layout/navbar/ProfileDropdown';
 import SearchInput from 'layouts/main-layout/navbar/SearchInput';
+import SettingsDropdown from 'layouts/main-layout/navbar/SettingsDropdown';
 import { useLocation } from 'react-router-dom';
 interface NavbarProps {
   onDrawerToggle: () => void;
@@ -19,55 +21,42 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
         <Toolbar
           sx={{
             flexWrap: 'wrap',
+            gap: 2,
+            mr: { xs: 1.25, md: 0 },
           }}
         >
-          <IconButton onClick={onDrawerToggle} sx={{ display: { md: 'none' }, mr: 2 }}>
+          <IconButton onClick={onDrawerToggle} sx={{ display: { md: 'none' } }}>
             <IconifyIcon icon="mingcute:menu-line" color="primary.darker" />
           </IconButton>
           <Typography
             sx={{
-              typography: { xs: 'h3', md: 'h1' },
+              typography: { xs: 'h3', md: 'h2', xl: 'h1' },
               color: 'primary.darker',
               flex: 1,
+              textAlign: { xs: 'center', md: 'left' },
+              textTransform: 'capitalize',
             }}
           >
             {routeName}
           </Typography>
-          <Stack direction="row" sx={{ alignItems: 'center', gap: 4 }}>
-            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-              <SearchInput />
+          <Stack direction="row" sx={{ alignItems: 'center', gap: { xs: 2.5, xl: 3.75 } }}>
+            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+              <SearchInput fullWidth={false} size={'medium'} />
             </Box>
 
-            <IconButton sx={{ bgcolor: 'background.paper' }}>
-              <IconifyIcon icon="lucide:settings" color="text.secondary" />
-            </IconButton>
-
-            <IconButton sx={{ bgcolor: 'background.paper' }}>
-              <IconifyIcon icon="lucide:bell-dot" color="error.main" />
-            </IconButton>
-
-            <IconButton sx={{ p: 0, position: 'relative' }}>
-              <Avatar
-                alt="Avatar"
-                src={ProfileImage}
-                slotProps={{
-                  img: {
-                    style: {
-                      objectFit: 'cover',
-                      position: 'absolute',
-                      top: '70%',
-                      left: '30%',
-                      transform: 'translate(-50%, -50%) scale(1.5)',
-                      width: 60,
-                      height: 60,
-                    },
-                  },
-                }}
-                sx={{ width: 60, height: 60 }}
-              />
-            </IconButton>
+            <Stack
+              direction="row"
+              sx={{ display: { xs: 'none', md: 'flex' }, gap: { xs: 2.5, xl: 3.75 } }}
+            >
+              <SettingsDropdown />
+              <NotificationDropdown />
+            </Stack>
+            <ProfileDropdown />
           </Stack>
         </Toolbar>
+        <Box sx={{ display: { xs: 'block', md: 'none' }, px: 3.15, mt: 2.5 }}>
+          <SearchInput fullWidth={true} size={'small'} />
+        </Box>
       </AppBar>
     </>
   );

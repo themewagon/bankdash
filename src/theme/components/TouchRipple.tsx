@@ -4,7 +4,7 @@ import { Components } from '@mui/material/styles/components';
 const TouchRippleComponent: Components<Omit<Theme, 'components'>>['MuiTouchRipple'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      color: theme.palette.neutral.light,
+      color: theme.palette.neutral.main,
     }),
     childPulsate: {
       animation: 'none',

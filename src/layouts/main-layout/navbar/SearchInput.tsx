@@ -2,7 +2,11 @@ import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useState } from 'react';
 
-function SearchInput() {
+interface SearchInputProps {
+  fullWidth: boolean;
+  size: 'small' | 'medium';
+}
+function SearchInput({ fullWidth, size }: SearchInputProps) {
   const [value, setValue] = useState('');
 
   return (
@@ -11,10 +15,12 @@ function SearchInput() {
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         width: 1,
       }}
     >
       <TextField
+        fullWidth={fullWidth}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Search for something"
@@ -28,6 +34,7 @@ function SearchInput() {
           ),
         }}
         variant="filled"
+        size={size}
         sx={{
           //   display: { xs: 'none', md: 'block' },
           //   width: '100%',

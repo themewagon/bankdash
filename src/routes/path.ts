@@ -10,9 +10,14 @@ export const rootPaths = {
  */
 const paths = {
   default: `${rootPaths.root}`,
+  transactions: `${rootPaths.pagesRoot}transactions`,
+  creditCards: `${rootPaths.pagesRoot}credit-cards`,
+  investments: `${rootPaths.pagesRoot}investments`,
+  loans: `${rootPaths.pagesRoot}loans`,
+  accounts: `${rootPaths.pagesRoot}accounts`,
   login: `${rootPaths.authRoot}/login`,
   signup: `${rootPaths.authRoot}/sign-up`,
-  forgotPassword: `${rootPaths.authRoot}/forgot-password`,
+  forgetPassword: `${rootPaths.authRoot}/forget-password`,
   resetPassword: `${rootPaths.authRoot}/reset-password`,
   notFound: `${rootPaths.errorRoot}/404`,
 };

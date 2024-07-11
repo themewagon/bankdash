@@ -1,4 +1,4 @@
-import { Box, Card, Stack, Typography } from '@mui/material';
+import { Box, Card, Stack, Tab, Tabs, Typography } from '@mui/material';
 import { DataGrid, GridColDef, GridRowsProp, GridValidRowModel } from '@mui/x-data-grid';
 import CustomPagination from 'components/sections/dashboard/invoice/CustomPagination';
 import NoData from 'components/sections/dashboard/invoice/NoData';
@@ -6,7 +6,7 @@ import RenderCellDescription from 'components/sections/dashboard/invoice/RenderC
 import RenderCellDownload from 'components/sections/dashboard/invoice/RenderCellDownload';
 import { invoiceRowData, RowData } from 'data/invoice-data';
 import { currencyFormat, dateFormatFromUTC } from 'helpers/utils';
-import { useEffect, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 
 const columns: GridColDef[] = [
   {
@@ -76,27 +76,69 @@ const columns: GridColDef[] = [
     headerName: 'Download',
     sortable: false,
     flex: 1,
-    minWidth: 160,
+    minWidth: 100,
     renderCell: (params) => <RenderCellDownload params={params} />,
   },
 ];
+function a11yProps(index: number) {
+  return {
+    id: `transaction-tab-${index}`,
+    'aria-controls': `transaction-tabpanel-${index}`,
+  };
+}
 
 const InvoiceOverviewTable = () => {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState<GridRowsProp<RowData>>([]);
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event: SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+    filterData(newValue);
+  };
+
+  const filterData = (tabIndex: number) => {
+    switch (tabIndex) {
+      case 1:
+        setItems(invoiceRowData.filter((row) => row.description.revenue === 'up'));
+        break;
+      case 2:
+        setItems(invoiceRowData.filter((row) => row.description.revenue === 'down'));
+        break;
+      default:
+        setItems(invoiceRowData);
+        break;
+    }
+  };
 
   useEffect(() => {
-    (async () => {
-      setLoading(true);
-      setItems(invoiceRowData);
-      setLoading(false);
-    })();
-  }, [invoiceRowData]);
+    setLoading(true);
+    filterData(value);
+    setLoading(false);
+  }, [value]);
 
   return (
     <Stack sx={{ overflow: 'auto', justifyContent: 'space-between' }}>
-      <Box sx={{ mb: 2.5, mt: 3 }}>
-        <Typography variant="h3">Recent Invoice</Typography>
+      <Box sx={{ mb: 1.5, mt: 3 }}>
+        <Typography
+          sx={{
+            fontSize: {
+              xs: 'body2.fontSize',
+              md: 'h6.fontSize',
+              xl: 'h3.fontSize',
+            },
+            fontWeight: 600,
+          }}
+        >
+          Recent Invoice
+        </Typography>
+      </Box>
+      <Box sx={{ borderBottom: 1, borderColor: 'secondary.lighter', mb: 2.5 }}>
+        <Tabs value={value} onChange={handleChange} aria-label="transaction tabs">
+          <Tab label="All Transactions" {...a11yProps(0)} />
+          <Tab label="Income" {...a11yProps(1)} />
+          <Tab label="Expense" {...a11yProps(2)} />
+        </Tabs>
       </Box>
       <Card
         sx={{
@@ -126,6 +168,15 @@ const InvoiceOverviewTable = () => {
             },
             '& .MuiDataGrid-virtualScroller': {
               height: 400,
+            },
+            '& .MuiDataGrid-columnHeader': {
+              fontSize: { xs: 13, lg: 16 },
+            },
+            '& .MuiDataGrid-cell': {
+              fontSize: { xs: 13, lg: 16 },
+            },
+            '& .MuiTypography-root': {
+              fontSize: { xs: 13, lg: 16 },
             },
           }}
         />

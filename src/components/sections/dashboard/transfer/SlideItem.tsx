@@ -2,35 +2,55 @@ import { Avatar, Stack, Typography } from '@mui/material';
 
 interface UserCardProps {
   data: { id: number; image: string; name: string; designation: string };
-  cardSize: number;
+  cardSize: { lg: number; md: number; sm: number };
   active: boolean;
 }
 
 const SlideItem = ({ data, cardSize, active }: UserCardProps) => {
   return (
     <Stack
-      gap={0.5}
+      gap={0.75}
       alignItems="center"
       justifyContent="start"
-      sx={{ textAlign: 'center', maxWidth: 100, minHeight: 140 }}
+      sx={{ textAlign: 'center', maxWidth: 100, cursor: 'pointer' }}
     >
-      <Avatar src={data.image} sx={{ width: cardSize, height: cardSize }} />
+      <Avatar
+        src={data.image}
+        variant="circular"
+        sx={{
+          width: { sm: cardSize.sm, md: cardSize.md, lg: cardSize.lg },
+          height: { sm: cardSize.sm, md: cardSize.md, lg: cardSize.lg },
+          mb: 1,
+        }}
+      />
       <Typography
-        variant="body2"
         color="neutral.dark"
         sx={{
-          //   typography: { xs: 'caption', xl: 'body2' },
           fontWeight: active ? 700 : 400,
+          fontSize: {
+            xs: 'caption.fontSize',
+            md: 'body2.fontSize',
+          },
+          lineHeight: {
+            xs: 'caption.lineHeight',
+            md: 'body2.lineHeight',
+          },
         }}
       >
         {data.name}
       </Typography>
       <Typography
-        variant="body1"
         color="text.secondary"
         sx={{
-          //   typography: { xs: 'caption', xl: 'body1' },
           fontWeight: active ? 700 : 400,
+          fontSize: {
+            xs: 'caption.fontSize',
+            md: 'body1.fontSize',
+          },
+          lineHeight: {
+            xs: 'caption.lineHeight',
+            md: 'body.lineHeight',
+          },
         }}
       >
         {data.designation}

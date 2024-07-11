@@ -1,5 +1,5 @@
 import { PaletteColorOptions, PaletteOptions } from '@mui/material/styles';
-import { blue, green, grey, purple, red, yellow } from './colors';
+import { blue, green, grey, magneta, orange, red } from './colors';
 
 declare module '@mui/material/styles' {
   interface PaletteOptions {
@@ -41,26 +41,26 @@ const palette: PaletteOptions = {
     main: blue[500],
     dark: blue[800],
     darker: blue[900],
+    contrastText: '#ffffff',
   },
   secondary: {
-    lighter: purple[100],
-    light: purple[50],
-    main: purple[800],
-    dark: purple[700],
-    darker: purple[900],
+    lighter: magneta[100],
+    main: magneta[500],
+    contrastText: magneta[50],
   },
   error: { main: red[500] },
   warning: {
-    lighter: yellow[50],
-    light: yellow[100],
-    main: yellow[500],
-    dark: yellow[700],
-    darker: yellow[900],
+    light: orange[100],
+    main: orange[500],
+    dark: orange[700],
     contrastText: '#ffffff',
   },
   success: {
     lighter: green[50],
+    light: green[300],
     main: green[500],
+    dark: green[700],
+    darker: green[800],
   },
 
   grey,
