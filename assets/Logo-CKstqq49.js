@@ -1,0 +1,1 @@
+import{j as s}from"./index-TI6XGlyO.js";import{I as a}from"./Image-Cip6WRwj.js";import{T as r}from"./Typography-CeArFHjk.js";const m=()=>s.jsxs(s.Fragment,{children:[s.jsx(a,{src:"/bankdash/bankdash.svg",alt:"Logo",sx:{width:36}}),s.jsx(r,{variant:"h2",children:"Bankdash."})]});export{m as L};
