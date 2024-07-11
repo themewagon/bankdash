@@ -52,9 +52,9 @@ const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     }),
     sizeSmall: ({ theme }) => ({
       ...theme.typography.button,
-      lineHeight: 1.5,
-      paddingLeft: pxToRem(11),
-      paddingRight: pxToRem(11),
+      lineHeight: 1.1,
+      paddingLeft: pxToRem(8),
+      paddingRight: pxToRem(8),
     }),
     sizeMedium: ({ theme }) => ({
       fontSize: theme.typography.pxToRem(15),
