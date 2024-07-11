@@ -54,7 +54,7 @@ const SliderComponent = () => {
 
   return (
     <Stack gap={4} justifyContent="space-between" sx={{ flex: 1 }}>
-      <Stack direction="row" sx={{ alignItems: 'center', mt: 1 }}>
+      <Stack direction="row" sx={{ alignItems: 'center', mt: 2 }}>
         {/** Slider main container */}
         <Box sx={{ overflow: 'hidden' }}>
           <ReactSwiper swiperProps={swiperProps}>

@@ -21,7 +21,7 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
         <Toolbar
           sx={{
             flexWrap: 'wrap',
-            gap: 2,
+            gap: { xs: 0, lg: 2 },
             mr: { xs: 1.25, md: 0 },
           }}
         >
@@ -40,7 +40,7 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
             {routeName}
           </Typography>
           <Stack direction="row" sx={{ alignItems: 'center', gap: { xs: 2.5, xl: 3.75 } }}>
-            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+            <Box sx={{ display: { xs: 'none', md: 'block', maxWidth: 260 } }}>
               <SearchInput fullWidth={false} size={'medium'} />
             </Box>
 
