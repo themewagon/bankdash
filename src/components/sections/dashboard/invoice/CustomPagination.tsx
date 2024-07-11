@@ -12,7 +12,6 @@ const Prev = () => (
   <Stack direction="row" spacing={0.15} sx={{ alignItems: 'center' }}>
     <IconifyIcon icon="lets-icons:expand-left" />
     <Typography
-      color="primary"
       fontWeight="medium"
       sx={{
         fontSize: { xs: 'caption.fontSize', md: 'body1.fontSize' },
@@ -26,7 +25,6 @@ const Prev = () => (
 const Next = () => (
   <Stack direction="row" spacing={0.15} sx={{ alignItems: 'center' }}>
     <Typography
-      color="primary"
       fontWeight="medium"
       sx={{
         fontSize: { xs: 'caption.fontSize', md: 'body1.fontSize' },

@@ -18,8 +18,9 @@ import IconButtonComponent from 'theme/components/IconButton';
 import LinkComponent from 'theme/components/Link';
 import ListItemComponent from 'theme/components/list/ListItem';
 import ListItemTextComponent from 'theme/components/list/ListItemText';
-import MenuComponent from 'theme/components/list/Menu';
-import PaginationComponent from 'theme/components/Pagination';
+import MenuComponent from 'theme/components/Menu';
+import PaginationComponent from 'theme/components/pagination/Pagination';
+import PaginationItemComponent from 'theme/components/pagination/PaginationItem';
 import TabComponent from 'theme/components/Tab';
 import TabsComponent from 'theme/components/Tabs';
 import ToolbarComponent from 'theme/components/Toolbar';
@@ -55,6 +56,7 @@ export const theme = createTheme({
     MuiMenu: MenuComponent,
     MuiOutlinedInput: OutlinedInputComponent,
     MuiPagination: PaginationComponent,
+    MuiPaginationItem: PaginationItemComponent,
     MuiTab: TabComponent,
     MuiTabs: TabsComponent,
     MuiToolbar: ToolbarComponent,
