@@ -18,12 +18,9 @@ const BalanceHistory = () => {
     fetchData();
   }, []);
   return (
-    <CardContainer
-      title="Balance History"
-      CardComponent={BalanceHistoryChart}
-      chartRef={chartRef}
-      seriesData={chartData}
-    />
+    <CardContainer title="Balance History">
+      <BalanceHistoryChart chartRef={chartRef} seriesData={chartData} />
+    </CardContainer>
   );
 };
 

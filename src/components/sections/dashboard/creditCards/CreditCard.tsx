@@ -82,7 +82,7 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
             >
               Balance
             </Typography>
-            <Typography sx={{ typography: { xs: 'body2', md: 'h4' } }}>
+            <Typography sx={{ fontSize: { xs: 'body2.fontSize', md: 'h4.fontSize' } }}>
               {currencyFormat(Number(balance))}
             </Typography>
           </div>
@@ -94,7 +94,7 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
               <Typography
                 sx={{
                   color: labelColor,
-                  typography: { xs: 'overline', md: 'caption' },
+                  fontSize: { xs: 'overline.fontSize', md: 'caption.fontSize' },
                 }}
               >
                 CARD HOLDER
@@ -112,10 +112,9 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
           <Grid item xs={6}>
             <Stack sx={{ gap: 0.5 }}>
               <Typography
-                variant="caption"
                 sx={{
                   color: labelColor,
-                  typography: { xs: 'overline', md: 'caption' },
+                  fontSize: { xs: 'overline.fontSize', md: 'caption.fontSize' },
                 }}
               >
                 VALID THRU
@@ -149,7 +148,7 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
       >
         <Typography
           sx={{
-            typography: { xs: 'body1', md: 'h3' },
+            fontSize: { xs: 'body1.fontSize', md: 'h3.fontSize' },
           }}
         >
           {cardNumber}

@@ -18,11 +18,9 @@ const ExpenseStatistics = () => {
     fetchData();
   }, []);
   return (
-    <CardContainer
-      title="Expense Statistics"
-      CardComponent={ExpenseStatisticsChart}
-      seriesData={chartData}
-    />
+    <CardContainer title="Expense Statistics">
+      <ExpenseStatisticsChart chartRef={chartRef} seriesData={chartData} />
+    </CardContainer>
   );
 };
 

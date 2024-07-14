@@ -60,7 +60,7 @@ const ExpenseStatisticsChart = ({ chartRef, ...rest }: ExpenseStatisticsChartPro
           label: {
             show: true,
             position: 'inside',
-            formatter: function (params) {
+            formatter: (params) => {
               return `{percent|${params.percent}%}\n{name|${params.name}}`;
             },
             rich: {

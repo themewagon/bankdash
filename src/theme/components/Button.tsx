@@ -9,7 +9,6 @@ declare module '@mui/material' {
 }
 
 const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
-  defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
       ...theme.typography.button,
@@ -22,7 +21,13 @@ const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
         boxShadow: theme.shadows[5],
       },
     }),
-
+    text: ({ theme }) => ({
+      backgroundColor: 'transparent',
+      '&:hover': {
+        backgroundColor: 'transparent',
+        boxShadow: theme.shadows[0],
+      },
+    }),
     outlined: ({ theme }) => ({
       ...theme.typography.caption,
       fontWeight: theme.typography.fontWeightMedium,
@@ -31,9 +36,6 @@ const ButtonComponent: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       borderRadius: theme.shape.borderRadius * 12.5,
     }),
     textPrimary: ({ theme }) => ({
-      '&:hover': {
-        backgroundColor: theme.palette.neutral.light,
-      },
       '&.Mui-disabled': {
         color: theme.palette.action.disabled,
       },

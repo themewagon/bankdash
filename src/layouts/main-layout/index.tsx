@@ -1,6 +1,6 @@
 import { Box, Stack } from '@mui/material';
-import Footer from 'layouts/main-layout/Footer';
-import MainNavbar from 'layouts/main-layout/navbar/MainNavbar';
+import MainNavbar from 'layouts/main-layout/appbar/Appbar';
+import Footer from 'layouts/main-layout/footer/Footer';
 import MobileSidebar from 'layouts/main-layout/sidebar/MobileSidebar';
 import Sidebar from 'layouts/main-layout/sidebar/Sidebar';
 import { PropsWithChildren, useState } from 'react';

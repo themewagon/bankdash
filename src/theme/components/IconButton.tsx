@@ -43,7 +43,7 @@ const IconButtonComponent: Components<Omit<Theme, 'components'>>['MuiIconButton'
       fontSize: theme.typography.pxToRem(28),
     }),
     sizeSmall: ({ theme }) => ({
-      fontSize: theme.typography.pxToRem(18),
+      fontSize: theme.typography.pxToRem(15),
       padding: theme.spacing(0.75),
     }),
   },

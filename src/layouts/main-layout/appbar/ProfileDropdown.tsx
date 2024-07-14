@@ -75,7 +75,7 @@ const ProfileDropdown = () => {
             User Profile
           </Typography>
           <Stack direction="row" py={2.5} spacing={1.5} alignItems="center">
-            <Avatar src={ProfileImage} alt={ProfileImage} sx={{ width: 65, height: 65 }} />
+            <Avatar src={ProfileImage} alt="Profile Image" sx={{ width: 65, height: 65 }} />
             <Box>
               <Typography variant="subtitle2" color="text.primary" fontWeight={600}>
                 Charlene Reed

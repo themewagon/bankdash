@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Divider,
-  IconButton,
   List,
   ListItemAvatar,
   ListItemButton,
@@ -18,7 +17,6 @@ import TransactionImage from 'assets/transaction-money.svg';
 import IconifyIcon from 'components/base/IconifyIcon';
 import dayjs from 'dayjs';
 import { uniqueId } from 'lodash';
-import { MouseEvent, useState } from 'react';
 import { Fragment } from 'react/jsx-runtime';
 import SimpleBar from 'simplebar-react';
 
@@ -72,33 +70,24 @@ const notifications_data = [
     isUnRead: false,
   },
 ];
-
-const NotificationDropdown = () => {
-  const [open, setOpen] = useState<null | HTMLElement>(null);
+interface NotificationDropdownProps {
+  onClose: () => void;
+  open: null | HTMLElement;
+}
+const NotificationDropdown = ({ open, onClose }: NotificationDropdownProps) => {
+  //   const [open, setOpen] = useState<null | HTMLElement>(null);
   const totalUnreadMsg = notifications_data.filter((item) => item.isUnRead === true).length;
 
-  const handleOpen = (event: MouseEvent<HTMLElement>) => {
-    setOpen(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setOpen(null);
-  };
+  //   const handleClose = () => {
+  //     setOpen(null);
+  //   };
 
   return (
     <Fragment>
-      <IconButton sx={{ bgcolor: 'background.paper' }} onClick={handleOpen}>
-        <IconifyIcon
-          color="error.main"
-          icon="lucide:bell-dot"
-          sx={{ width: { md: 18, xl: 25 }, height: { md: 18, xl: 25 } }}
-        />
-      </IconButton>
-
       <Popover
-        open={!!open}
+        open={Boolean(open)}
         anchorEl={open}
-        onClose={handleClose}
+        onClose={onClose}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         slotProps={{
@@ -107,7 +96,7 @@ const NotificationDropdown = () => {
           },
         }}
       >
-        <Stack direction="row" sx={{ display: 'flex', alignItems: 'center', py: 2, px: 2.5 }}>
+        <Stack direction="row" sx={{ alignItems: 'center', py: 2, px: 2.5 }}>
           <Stack gap={1} sx={{ flexGrow: 1 }}>
             <Typography variant="subtitle1">All Notifications</Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary' }}>

@@ -103,13 +103,13 @@ export const menuLinks: MenuLinkType[] = [
     icon: SignUpIcon,
     available: true,
   },
-  //   {
-  //     id: 11,
-  //     title: linkEnum.ForgetPassword,
-  //     link: '/authentication/forget-password',
-  //     icon: SignUpIcon,
-  //     available: true,
-  //   },
+  {
+    id: 11,
+    title: linkEnum.ForgetPassword,
+    link: '/authentication/forget-password',
+    icon: SignUpIcon,
+    available: true,
+  },
   //   {
   //     id: 12,
   //     title: linkEnum.ResetPassword,

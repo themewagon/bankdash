@@ -6,7 +6,8 @@ interface SearchInputProps {
   fullWidth: boolean;
   size: 'small' | 'medium';
 }
-function SearchInput({ fullWidth, size }: SearchInputProps) {
+
+const SearchInput = ({ fullWidth, size }: SearchInputProps) => {
   const [value, setValue] = useState('');
 
   return (
@@ -46,6 +47,6 @@ function SearchInput({ fullWidth, size }: SearchInputProps) {
       />
     </Stack>
   );
-}
+};
 
 export default SearchInput;

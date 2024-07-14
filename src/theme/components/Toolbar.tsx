@@ -19,8 +19,8 @@ const ToolbarComponent: Components<Omit<Theme, 'components'>>['MuiToolbar'] = {
       justifyContent: 'center',
       minHeight: theme.spacing(7.5),
       height: theme.spacing(7.5),
-      paddingLeft: theme.spacing(1.65),
-      paddingRight: theme.spacing(1.65),
+      paddingLeft: theme.spacing(3.15),
+      paddingRight: theme.spacing(3.15),
       [theme.breakpoints.up('md')]: {
         paddingLeft: theme.spacing(4.5),
         paddingRight: theme.spacing(4.5),

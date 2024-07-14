@@ -7,7 +7,7 @@ const SettingsDropdown = () => {
       <IconifyIcon
         icon="lucide:settings"
         color="text.secondary"
-        sx={{ width: { md: 18, xl: 25 }, height: { md: 18, xl: 25 } }}
+        sx={{ width: { xs: 18, md: 20, xl: 25 }, height: { xs: 18, md: 20, xl: 25 } }}
       />
     </IconButton>
   );

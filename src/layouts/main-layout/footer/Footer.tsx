@@ -1,4 +1,4 @@
-import { Box, ButtonBase, Container, Grid, Link, Stack, Typography } from '@mui/material';
+import { Box, Container, Grid, Link, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 /* ----------------  Links Data  ------------------------------ */
@@ -76,24 +76,20 @@ const Footer = () => {
                   }}
                 >
                   {data?.map((link) => (
-                    <ButtonBase
+                    <Link
+                      fontWeight="regular"
+                      color="text.secondary"
                       key={link.key}
-                      component={Link}
                       href={`${link.href}`}
                       sx={{
                         px: 2,
                         lineHeight: 1,
                         '& :hover': { color: 'primary.main' },
+                        fontSize: { xs: 'button.fontSize', md: 'body1.fontSize' },
                       }}
                     >
-                      <Typography
-                        fontWeight="regular"
-                        color="text.secondary"
-                        sx={{ fontSize: { xs: 'button.fontSize', md: 'body1.fontSize' } }}
-                      >
-                        {link.title}
-                      </Typography>
-                    </ButtonBase>
+                      {link.title}
+                    </Link>
                   ))}
                 </Stack>
               </Grid>
