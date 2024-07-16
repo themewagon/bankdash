@@ -29,20 +29,24 @@ const SignupPage = () => {
               }}
             >
               Already have an account?
-              <Link href="/authentication/login" variant="subtitle2" sx={{ ml: 0.75 }}>
+              <Link
+                href="/authentication/login"
+                variant="subtitle2"
+                sx={{ ml: 0.75, '&:hover': { color: 'primary.light' } }}
+              >
                 Sign In Now!
               </Link>
             </Typography>
 
-            <Stack direction="row" spacing={2}>
-              <Button fullWidth size="large" color="neutral" variant="outlined">
+            <Stack direction="row" spacing={{ xs: 1, sm: 2 }}>
+              <Button fullWidth size="large" color="neutral" variant="outlined" sx={{ p: 1 }}>
                 <IconifyIcon icon="eva:google-fill" color="error.main" />
               </Button>
-              <Button fullWidth size="large" color="neutral" variant="outlined">
-                <IconifyIcon icon="gg:facebook" color="primary.main" />
+              <Button fullWidth size="large" color="neutral" variant="outlined" sx={{ p: 1 }}>
+                <IconifyIcon icon="gg:facebook" color="primary.main" width={22} />
               </Button>
 
-              <Button fullWidth size="large" color="neutral" variant="outlined">
+              <Button fullWidth size="large" color="neutral" variant="outlined" sx={{ p: 1 }}>
                 <IconifyIcon icon="logos:twitter" />
               </Button>
             </Stack>

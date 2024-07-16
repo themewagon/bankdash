@@ -27,10 +27,10 @@ const Dashboard = () => {
       </Grid>
 
       {/* ------------- Slider section ---------------- */}
-      <Grid item xs={12} lg={5} xl={4} zIndex={1}>
+      <Grid item xs={12} lg={5.5} xl={5} zIndex={1}>
         <QuickTransfer />
       </Grid>
-      <Grid item xs={12} lg={7} xl={8} zIndex={1}>
+      <Grid item xs={12} lg={6.5} xl={7} zIndex={1}>
         <BalanceHistory />
       </Grid>
 

@@ -46,7 +46,7 @@ const QuickTransfer = () => {
   const swiperProps: SwiperComponentProps['swiperProps'] = {
     navigation: { nextEl: '.arrow-left', prevEl: '.arrow-right' },
     slidesPerView: slidesPerView,
-    spaceBetween: 20,
+    spaceBetween: 15,
     slideToClickedSlide: true,
     loop: true,
     centeredSlides: true,
@@ -57,7 +57,7 @@ const QuickTransfer = () => {
 
   return (
     <CardContainer title="Quick Transfer">
-      <Stack gap={4} justifyContent="space-between" sx={{ flex: 1 }}>
+      <Stack gap={4} justifyContent="space-between" sx={{ flex: 1, pl: 0.5 }}>
         <Stack direction="row" sx={{ alignItems: 'center', mt: 2 }}>
           {/** Slider main container */}
           <Box sx={{ overflow: 'hidden' }}>

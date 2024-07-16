@@ -6,9 +6,6 @@ const IconButtonComponent: Components<Omit<Theme, 'components'>>['MuiIconButton'
     root: ({ theme }) => ({
       color: theme.palette.primary.light,
       transition: 'all 0.3s ease-in-out',
-      '&:hover': {
-        backgroundColor: 'transparent',
-      },
     }),
 
     sizeMedium: ({ theme }) => ({

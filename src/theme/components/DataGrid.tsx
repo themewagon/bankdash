@@ -41,13 +41,12 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
         zIndex: -1,
       },
     }),
+
     withBorderColor: ({ theme }) => ({
       borderColor: theme.palette.primary.main,
     }),
 
     main: ({ theme }) => ({
-      borderRadius: theme.shape.borderRadius * 6.25,
-
       background: alpha(theme.palette.background.paper, 0.2),
       [theme.breakpoints.up('md')]: {
         background: theme.palette.common.white,
@@ -63,11 +62,15 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
     columnSeparator: { display: 'none' },
     columnHeader: ({ theme }) => ({
       ...theme.typography.body2,
+      padding: theme.spacing(0),
       fontWeight: '800 !important',
       color: theme.palette.primary.light,
       backgroundColor: theme.palette.background.paper,
       [theme.breakpoints.up('md')]: {
         backgroundColor: theme.palette.common.white,
+      },
+      '&:first-of-type': {
+        paddingLeft: theme.spacing(5), // Add padding left to the first cell
       },
       '&--sorted': { color: theme.palette.primary.dark },
 
@@ -95,11 +98,7 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       display: 'flex',
       flexDirection: 'column',
     },
-    row: ({ theme }) => ({
-      '&:hover': {
-        backgroundColor: theme.palette.background.paper,
-      },
-    }),
+
     cell: ({ theme }) => ({
       paddingLeft: theme.spacing(2.25),
       paddingRight: theme.spacing(2.25),

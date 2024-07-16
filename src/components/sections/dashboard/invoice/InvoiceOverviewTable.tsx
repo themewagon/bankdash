@@ -14,12 +14,13 @@ import { invoiceRowData, RowData } from 'data/invoice-data';
 import { currencyFormat, dateFormatFromUTC } from 'helpers/utils';
 import { useBreakpoints } from 'providers/useBreakpoints';
 import { SyntheticEvent, useEffect, useState } from 'react';
+import SimpleBar from 'simplebar-react';
 
 const columns: GridColDef[] = [
   {
     field: 'description',
     headerName: 'Description',
-    width: 240,
+    width: 230,
     hideable: false,
     renderCell: (params) => <RenderCellDescription params={params} />,
     valueGetter: (params: GridValidRowModel) => params.title,
@@ -36,20 +37,20 @@ const columns: GridColDef[] = [
     field: 'type',
     headerName: 'Type',
     flex: 1,
-    minWidth: 150,
+    minWidth: 100,
     hideable: false,
   },
   {
     field: 'card',
     headerName: 'Card',
-    minWidth: 150,
+    minWidth: 100,
     flex: 1,
     hideable: false,
   },
   {
     field: 'date',
     headerName: 'Date',
-    minWidth: 150,
+    minWidth: 130,
     flex: 1,
     hideable: false,
     renderCell: (params) => <>{dateFormatFromUTC(params.value)}</>,
@@ -58,7 +59,7 @@ const columns: GridColDef[] = [
     field: 'amount',
     headerName: 'Amount',
     flex: 1,
-    minWidth: 150,
+    minWidth: 100,
     hideable: false,
     renderCell: (params) => {
       const color = params.row.description.revenue === 'down' ? 'error.main' : 'success.main';
@@ -168,43 +169,45 @@ const InvoiceOverviewTable: React.FC = () => {
           overflow: 'hidden',
         }}
       >
-        <DataGrid
-          rowHeight={rowHeight}
-          rows={items.slice(
-            paginationModel.page * paginationModel.pageSize,
-            (paginationModel.page + 1) * paginationModel.pageSize,
-          )}
-          rowCount={items.length}
-          columns={columns}
-          disableRowSelectionOnClick
-          paginationMode="server"
-          paginationModel={paginationModel}
-          onPaginationModelChange={handlePaginationModelChange}
-          slots={{
-            noRowsOverlay: () => <NoData />,
-            pagination: () => null, // Hide the default pagination component
-          }}
-          loading={loading}
-          sx={{
-            px: { xs: 0, md: 3 },
-            '& .MuiDataGrid-main': {
-              minHeight: 300,
-            },
-            '& .MuiDataGrid-virtualScroller': {
-              minHeight: 300,
-              p: 0,
-            },
-            '& .MuiDataGrid-columnHeader': {
-              fontSize: { xs: 13, lg: 16 },
-            },
-            '& .MuiDataGrid-cell': {
-              fontSize: { xs: 13, lg: 16 },
-            },
-            '& .MuiTypography-root': {
-              fontSize: { xs: 13, lg: 16 },
-            },
-          }}
-        />
+        <SimpleBar>
+          <DataGrid
+            rowHeight={rowHeight}
+            rows={items.slice(
+              paginationModel.page * paginationModel.pageSize,
+              (paginationModel.page + 1) * paginationModel.pageSize,
+            )}
+            rowCount={items.length}
+            columns={columns}
+            disableRowSelectionOnClick
+            paginationMode="server"
+            paginationModel={paginationModel}
+            onPaginationModelChange={handlePaginationModelChange}
+            slots={{
+              noRowsOverlay: () => <NoData />,
+              pagination: () => null, // Hide the default pagination component
+            }}
+            loading={loading}
+            sx={{
+              px: { xs: 0, md: 3 },
+              '& .MuiDataGrid-main': {
+                minHeight: 300,
+              },
+              '& .MuiDataGrid-virtualScroller': {
+                minHeight: 300,
+                p: 0,
+              },
+              '& .MuiDataGrid-columnHeader': {
+                fontSize: { xs: 13, lg: 16 },
+              },
+              '& .MuiDataGrid-cell': {
+                fontSize: { xs: 13, lg: 16 },
+              },
+              '& .MuiTypography-root': {
+                fontSize: { xs: 13, lg: 16 },
+              },
+            }}
+          />
+        </SimpleBar>
       </Card>
       <Box sx={{ mt: 2, display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' } }}>
         <CustomPagination

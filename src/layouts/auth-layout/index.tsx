@@ -15,7 +15,8 @@ const AuthLayout = () => {
         width: 1,
         justifyContent: 'center',
         background: (theme: Theme) => theme.palette.gradients['bgGradient'],
-        p: 4,
+        px: { xs: 0.5, md: 3 },
+        py: 4,
       }}
     >
       <Toolbar

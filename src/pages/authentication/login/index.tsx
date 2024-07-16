@@ -30,7 +30,11 @@ const LoginPage = () => {
               }}
             >
               Don’t have an account?
-              <Link href="/authentication/sign-up" variant="subtitle2" sx={{ ml: 0.75 }}>
+              <Link
+                href="/authentication/sign-up"
+                variant="subtitle2"
+                sx={{ ml: 0.75, '&:hover': { color: 'primary.light' } }}
+              >
                 Create One Now!
               </Link>
             </Typography>
