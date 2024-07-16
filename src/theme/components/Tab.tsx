@@ -14,7 +14,7 @@ const TabComponent: Components<Omit<Theme, 'components'>>['MuiTab'] = {
         ...theme.typography.body2,
         marginRight: theme.spacing(10),
       },
-      marginRight: theme.spacing(3),
+      marginRight: theme.spacing(5),
       paddingTop: theme.spacing(1),
       paddingBottom: theme.spacing(1.5),
       paddingRight: theme.spacing(0),
