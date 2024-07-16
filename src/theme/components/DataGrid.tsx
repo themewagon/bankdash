@@ -46,7 +46,7 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
     }),
 
     main: ({ theme }) => ({
-      borderRadius: theme.shape.borderRadius * 6.25,
+      //   borderRadius: theme.shape.borderRadius * 6.25,
 
       background: alpha(theme.palette.background.paper, 0.2),
       [theme.breakpoints.up('md')]: {
