@@ -19,7 +19,7 @@ const columns: GridColDef[] = [
   {
     field: 'description',
     headerName: 'Description',
-    width: 250,
+    width: 240,
     hideable: false,
     renderCell: (params) => <RenderCellDescription params={params} />,
     valueGetter: (params: GridValidRowModel) => params.title,
@@ -28,7 +28,7 @@ const columns: GridColDef[] = [
     field: 'transactionId',
     headerName: 'Transaction ID',
     flex: 1,
-    minWidth: 100,
+    minWidth: 150,
     hideable: false,
     renderCell: (params) => <>#{params.value}</>,
   },
@@ -36,20 +36,20 @@ const columns: GridColDef[] = [
     field: 'type',
     headerName: 'Type',
     flex: 1,
-    minWidth: 100,
+    minWidth: 150,
     hideable: false,
   },
   {
     field: 'card',
     headerName: 'Card',
-    minWidth: 100,
+    minWidth: 150,
     flex: 1,
     hideable: false,
   },
   {
     field: 'date',
     headerName: 'Date',
-    minWidth: 100,
+    minWidth: 150,
     flex: 1,
     hideable: false,
     renderCell: (params) => <>{dateFormatFromUTC(params.value)}</>,
@@ -58,7 +58,7 @@ const columns: GridColDef[] = [
     field: 'amount',
     headerName: 'Amount',
     flex: 1,
-    minWidth: 100,
+    minWidth: 150,
     hideable: false,
     renderCell: (params) => {
       const color = params.row.description.revenue === 'down' ? 'error.main' : 'success.main';
@@ -76,7 +76,7 @@ const columns: GridColDef[] = [
     headerName: 'Download',
     sortable: false,
     flex: 1,
-    width: 100,
+    minWidth: 150,
     renderCell: (params) => <RenderCellDownload params={params} />,
   },
 ];
@@ -174,6 +174,7 @@ const InvoiceOverviewTable: React.FC = () => {
             paginationModel.page * paginationModel.pageSize,
             (paginationModel.page + 1) * paginationModel.pageSize,
           )}
+          rowCount={items.length}
           columns={columns}
           disableRowSelectionOnClick
           paginationMode="server"
@@ -185,7 +186,7 @@ const InvoiceOverviewTable: React.FC = () => {
           }}
           loading={loading}
           sx={{
-            px: 3,
+            px: { xs: 0, md: 3 },
             '& .MuiDataGrid-main': {
               minHeight: 300,
             },

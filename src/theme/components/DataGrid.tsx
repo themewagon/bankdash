@@ -33,7 +33,8 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       '--DataGrid-containerBackground': theme.palette.background.default,
       backgroundColor: theme.palette.background.default,
       //   borderRadius: theme.shape.borderRadius * 6.25,
-      borderWidth: 0,
+      borderWidth: 1,
+
       scrollbarWidth: 'thin',
       fontWeight: theme.typography.fontWeightRegular,
       '& .MuiDataGrid-filler': {
@@ -50,14 +51,18 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
     main: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 6.25,
 
-      background: theme.palette.background.paper,
+      background: alpha(theme.palette.background.paper, 0.2),
       [theme.breakpoints.up('md')]: {
         background: theme.palette.common.white,
       },
       //   paddingLeft: theme.spacing(3.75),
       //   paddingRight: theme.spacing(3.75),
-      paddingTop: theme.spacing(2),
-      paddingBottom: theme.spacing(2),
+      paddingTop: theme.spacing(0.5),
+      paddingBottom: theme.spacing(0.5),
+      [theme.breakpoints.up('md')]: {
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(2),
+      },
     }),
     columnSeparator: { display: 'none' },
     columnHeader: ({ theme }) => ({
@@ -76,8 +81,12 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       },
     }),
     columnHeaderTitleContainer: ({ theme }) => ({
-      paddingLeft: theme.spacing(0.25),
-      paddingRight: theme.spacing(0.25),
+      paddingLeft: theme.spacing(1.25),
+      paddingRight: theme.spacing(1.25),
+      [theme.breakpoints.up('md')]: {
+        paddingLeft: theme.spacing(0.25),
+        paddingRight: theme.spacing(0.25),
+      },
     }),
 
     overlay: ({ theme }) => ({
@@ -98,6 +107,12 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       },
     }),
     cell: ({ theme }) => ({
+      paddingLeft: theme.spacing(2.25),
+      paddingRight: theme.spacing(2.25),
+      [theme.breakpoints.up('md')]: {
+        paddingLeft: theme.spacing(0.25),
+        paddingRight: theme.spacing(0.25),
+      },
       alignItems: 'center',
       display: 'flex',
       '&--editing': {
@@ -154,7 +169,6 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       fontWeight: theme.typography.fontWeightExtraBold,
       minHeight: 'auto',
       borderTopStyle: 'hidden',
-      backgroundColor: 'red',
     }),
     selectedRowCount: { display: 'none', whiteSpace: 'nowrap' },
     columnsManagementHeader: { display: 'none', zIndex: -1 },
