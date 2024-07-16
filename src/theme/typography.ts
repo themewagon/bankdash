@@ -24,7 +24,6 @@ declare module '@mui/material/styles' {
 
 const typography: TypographyOptions = {
   fontFamily: ['Inter', 'sans-serif'].join(','),
-  //   fontWeightLighter: 100,
   fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,

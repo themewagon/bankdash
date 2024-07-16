@@ -8,7 +8,6 @@ const InputComponent: Components<Omit<Theme, 'components'>>['MuiInput'] = {
         display: 'none',
       },
     },
-    // input: { marginTop: 0 },
   },
 };
 

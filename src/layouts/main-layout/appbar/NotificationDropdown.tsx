@@ -75,12 +75,7 @@ interface NotificationDropdownProps {
   open: null | HTMLElement;
 }
 const NotificationDropdown = ({ open, onClose }: NotificationDropdownProps) => {
-  //   const [open, setOpen] = useState<null | HTMLElement>(null);
   const totalUnreadMsg = notifications_data.filter((item) => item.isUnRead === true).length;
-
-  //   const handleClose = () => {
-  //     setOpen(null);
-  //   };
 
   return (
     <Fragment>

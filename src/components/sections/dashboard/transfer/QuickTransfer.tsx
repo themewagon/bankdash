@@ -26,9 +26,6 @@ const ItemData = [
   { id: 3, image: Image1, name: 'Workman', designation: 'Designer' },
   { id: 4, image: Image4, name: 'Kevin Reed', designation: 'UX' },
   { id: 5, image: Image5, name: 'Charleen', designation: 'CTO' },
-  //   { id: 5, image: Image5, name: 'Sophia Clark', designation: 'Marketing Manager' },
-  //   { id: 6, image: Image3, name: 'Natalie', designation: 'Product Manager' },
-  //   { id: 7, image: Image1, name: 'Chris Evans', designation: 'Developer' },
 ];
 /* -------------------------------------------------------------------------- */
 const cardSize = { lg: 70, md: 50, sm: 50 }; // Adjust card size as needed

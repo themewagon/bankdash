@@ -55,7 +55,6 @@ const ExpenseStatisticsChart = ({ chartRef, ...rest }: ExpenseStatisticsChartPro
           roseType: 'radius',
           avoidLabelOverlap: false,
 
-          //   radius: '95%',
           data: seriesData,
           label: {
             show: true,

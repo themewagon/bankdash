@@ -43,14 +43,7 @@ const LoginPage = () => {
                 <IconifyIcon icon="gg:facebook" color="primary.main" width={22} />
               </Button>
 
-              <Button
-                fullWidth
-                size="large"
-                color="neutral"
-                variant="outlined"
-                sx={{ p: 1 }}
-                //   sx={{ borderColor: alpha(theme.palette.grey[500], 0.16) }}
-              >
+              <Button fullWidth size="large" color="neutral" variant="outlined" sx={{ p: 1 }}>
                 <IconifyIcon icon="logos:twitter" />
               </Button>
             </Stack>

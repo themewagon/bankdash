@@ -8,8 +8,6 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
   defaultProps: {
     columnHeaderHeight: 52,
     rowHeight: 64,
-    // autoHeight: true,
-
     localeText: {
       noResultsOverlayLabel: 'No Data Available',
     },
@@ -32,7 +30,6 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       '--DataGrid-rowBorderColor': theme.palette.divider,
       '--DataGrid-containerBackground': theme.palette.background.default,
       backgroundColor: theme.palette.background.default,
-      //   borderRadius: theme.shape.borderRadius * 6.25,
       borderWidth: 1,
 
       scrollbarWidth: 'thin',
@@ -55,8 +52,7 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       [theme.breakpoints.up('md')]: {
         background: theme.palette.common.white,
       },
-      //   paddingLeft: theme.spacing(3.75),
-      //   paddingRight: theme.spacing(3.75),
+
       paddingTop: theme.spacing(0.5),
       paddingBottom: theme.spacing(0.5),
       [theme.breakpoints.up('md')]: {
@@ -92,14 +88,12 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
     overlay: ({ theme }) => ({
       backgroundColor: alpha(theme.palette.common.black, theme.palette.action.hoverOpacity),
     }),
-    // overlayWrapperInner: { height: 'auto !important' },
     sortIcon: ({ theme }) => ({
       color: theme.palette.text.secondary,
     }),
     virtualScroller: {
       display: 'flex',
       flexDirection: 'column',
-      //   height: pxToRem(332), // to fix table height in data grid
     },
     row: ({ theme }) => ({
       '&:hover': {
@@ -126,8 +120,6 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
         outline: 'none',
         // removes the outline that appears when  focusing on a cell in Material UI's DataGrid component.
       },
-      //   paddingLeft: theme.spacing(1.25),
-      //   paddingRight: theme.spacing(1.25),
       color: theme.palette.neutral.dark,
 
       '&.MuiDataGrid-cell--withRenderer': {
