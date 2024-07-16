@@ -14,7 +14,6 @@ import { invoiceRowData, RowData } from 'data/invoice-data';
 import { currencyFormat, dateFormatFromUTC } from 'helpers/utils';
 import { useBreakpoints } from 'providers/useBreakpoints';
 import { SyntheticEvent, useEffect, useState } from 'react';
-import SimpleBar from 'simplebar-react';
 
 const columns: GridColDef[] = [
   {
@@ -169,45 +168,43 @@ const InvoiceOverviewTable: React.FC = () => {
           overflow: 'hidden',
         }}
       >
-        <SimpleBar>
-          <DataGrid
-            rowHeight={rowHeight}
-            rows={items.slice(
-              paginationModel.page * paginationModel.pageSize,
-              (paginationModel.page + 1) * paginationModel.pageSize,
-            )}
-            rowCount={items.length}
-            columns={columns}
-            disableRowSelectionOnClick
-            paginationMode="server"
-            paginationModel={paginationModel}
-            onPaginationModelChange={handlePaginationModelChange}
-            slots={{
-              noRowsOverlay: () => <NoData />,
-              pagination: () => null, // Hide the default pagination component
-            }}
-            loading={loading}
-            sx={{
-              px: { xs: 0, md: 3 },
-              '& .MuiDataGrid-main': {
-                minHeight: 300,
-              },
-              '& .MuiDataGrid-virtualScroller': {
-                minHeight: 300,
-                p: 0,
-              },
-              '& .MuiDataGrid-columnHeader': {
-                fontSize: { xs: 13, lg: 16 },
-              },
-              '& .MuiDataGrid-cell': {
-                fontSize: { xs: 13, lg: 16 },
-              },
-              '& .MuiTypography-root': {
-                fontSize: { xs: 13, lg: 16 },
-              },
-            }}
-          />
-        </SimpleBar>
+        <DataGrid
+          rowHeight={rowHeight}
+          rows={items.slice(
+            paginationModel.page * paginationModel.pageSize,
+            (paginationModel.page + 1) * paginationModel.pageSize,
+          )}
+          rowCount={items.length}
+          columns={columns}
+          disableRowSelectionOnClick
+          paginationMode="server"
+          paginationModel={paginationModel}
+          onPaginationModelChange={handlePaginationModelChange}
+          slots={{
+            noRowsOverlay: () => <NoData />,
+            pagination: () => null, // Hide the default pagination component
+          }}
+          loading={loading}
+          sx={{
+            px: { xs: 0, md: 3 },
+            '& .MuiDataGrid-main': {
+              minHeight: 300,
+            },
+            '& .MuiDataGrid-virtualScroller': {
+              minHeight: 300,
+              p: 0,
+            },
+            '& .MuiDataGrid-columnHeader': {
+              fontSize: { xs: 13, lg: 16 },
+            },
+            '& .MuiDataGrid-cell': {
+              fontSize: { xs: 13, lg: 16 },
+            },
+            '& .MuiTypography-root': {
+              fontSize: { xs: 13, lg: 16 },
+            },
+          }}
+        />
       </Card>
       <Box sx={{ mt: 2, display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' } }}>
         <CustomPagination

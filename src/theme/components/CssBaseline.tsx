@@ -1,6 +1,7 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 import 'simplebar-react/dist/simplebar.min.css';
+import scrollbar from 'theme/styles/scrollbar';
 import simplebar from 'theme/styles/simplebar';
 
 const CssBaselineComponent: Components<Omit<Theme, 'components'>>['MuiCssBaseline'] = {
@@ -8,6 +9,7 @@ const CssBaselineComponent: Components<Omit<Theme, 'components'>>['MuiCssBaselin
   styleOverrides: (theme) => ({
     body: {
       fontVariantLigatures: 'none',
+      ...scrollbar(theme),
     },
     'input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button':
       {

@@ -69,9 +69,6 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       [theme.breakpoints.up('md')]: {
         backgroundColor: theme.palette.common.white,
       },
-      '&:first-of-type': {
-        paddingLeft: theme.spacing(5), // Add padding left to the first cell
-      },
       '&--sorted': { color: theme.palette.primary.dark },
 
       height: 'var(--DataGrid-headerHeight) !important',

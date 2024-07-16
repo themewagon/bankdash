@@ -14,7 +14,7 @@ const scrollbar = (theme: Theme) => ({
   '*::-webkit-scrollbar-thumb': {
     visibility: 'hidden',
     borderRadius: 3,
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.neutral.main,
   },
   '&:hover, &:focus': {
     '*::-webkit-scrollbar, *::-webkit-scrollbar-thumb': {
