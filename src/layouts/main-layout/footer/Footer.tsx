@@ -28,18 +28,14 @@ const Footer = () => {
                   }}
                 >
                   <Typography
-                    variant="h6"
                     fontWeight="regular"
-                    sx={{ fontSize: { xs: 'body1.fontSize', md: 'h6.fontSize' } }}
+                    sx={{ fontSize: { xs: 'subtitle2.fontSize', md: 'h6.fontSize' } }}
                   >
                     &copy; {new Date().getFullYear()}, Your Company Inc.
                   </Typography>
                   <Typography
                     mb={0}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    sx={{ fontSize: { xs: 'body1.fontSize', md: 'h6.fontSize' } }}
+                    sx={{ fontSize: { xs: 'subtitle2.fontSize', md: 'h6.fontSize' } }}
                   >
                     Made with
                     <IconifyIcon icon="ri:heart-fill" sx={{ mx: 1, color: 'error.main' }} />

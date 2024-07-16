@@ -52,6 +52,7 @@ const QuickTransfer = () => {
     centeredSlides: true,
     slideActiveClass: 'swiper-slide-active',
     onRealIndexChange: (swiper) => setCurrentSlide(swiper.realIndex),
+    passiveListeners: true,
   };
 
   return (

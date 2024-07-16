@@ -41,7 +41,7 @@ const ForgetPasswordForm = () => {
           OR
         </Typography>
       </Divider>
-      <Typography textAlign="center" color="text.primary" variant="subtitle2">
+      <Typography textAlign="center" fontWeight={400} color="text.primary" variant="subtitle1">
         Remembered your Password?
       </Typography>
       <Button

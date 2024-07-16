@@ -52,7 +52,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
               //   backgroundColor: 'background.paper',
               px: { xs: 3.15, md: 5, xl: 7 },
               flex: 1,
-              gap: 4,
+              gap: 1,
             }}
           >
             {children}
