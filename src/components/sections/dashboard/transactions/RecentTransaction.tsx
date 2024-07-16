@@ -45,7 +45,12 @@ const RecentTransactions = () => {
             ({ id, icon: IconComponent, bgcolor, title, date, amount, amountColor }) => (
               <ListItem
                 key={id}
-                sx={{ display: 'flex', alignItems: 'center', gap: 3 }}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 3,
+                  ml: 0.75,
+                }}
                 disablePadding
               >
                 <Stack
@@ -74,6 +79,7 @@ const RecentTransactions = () => {
                       sx={{
                         color: 'primary.darker',
                         fontSize: { xs: 'subtitle1.fontSize', md: 'body2.fontSize' },
+                        '&:hover': { color: 'primary.light', transition: 'color 0.3s' },
                       }}
                     >
                       {title}

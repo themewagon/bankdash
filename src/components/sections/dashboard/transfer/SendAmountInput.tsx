@@ -25,6 +25,7 @@ const SendAmountInput = () => {
         Write Amount
       </Typography>
       <TextField
+        type="number"
         placeholder="525.50"
         InputProps={{
           endAdornment: (
