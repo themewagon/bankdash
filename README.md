@@ -9,9 +9,9 @@
 ## Demo
 
 - [Dashboard Page](https://themewagon.github.io/bankdash/)
-- [Login Page](http://localhost:3000/bankdash/authentication/login)
-- [Register Page](http://localhost:3000/bankdash/authentication/sign-up)
-- [Forgot Password](http://localhost:3000/bankdash/authentication/forget-password)
+- [Login Page](https://themewagon.github.io/bankdash/authentication/login)
+- [Register Page](https://themewagon.github.io/bankdash/authentication/sign-up)
+- [Forgot Password](https://themewagon.github.io/bankdash/authentication/forget-password)
 - [Not Found Page](https://themewagon.github.io/bankdash/error/404)
 
 ## Quick start
