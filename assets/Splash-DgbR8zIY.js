@@ -1,4 +1,4 @@
-import{q as i,j as o}from"./index-D5jIVGT_.js";import{P as e}from"./Portal-CM005gag.js";import{B as t}from"./Box-D3cYYDKM.js";const s=i`
+import{q as i,j as o}from"./index-DPXKdDNW.js";import{P as e}from"./Portal-2ulmCW55.js";import{B as t}from"./Box-C-LRTuq8.js";const s=i`
   0% {
     transform: rotate(0deg);
   }
