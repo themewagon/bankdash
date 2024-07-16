@@ -19,12 +19,9 @@ const WeeklyActivity = () => {
   }, []);
 
   return (
-    <CardContainer
-      title="Weekly Activity"
-      CardComponent={WeeklyActivityChart}
-      chartRef={chartRef}
-      seriesData={chartData}
-    />
+    <CardContainer title="Weekly Activity">
+      <WeeklyActivityChart chartRef={chartRef} seriesData={chartData} />
+    </CardContainer>
   );
 };
 

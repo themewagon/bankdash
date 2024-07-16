@@ -1,10 +1,4 @@
 import { Pagination, PaginationItem, Stack, Typography } from '@mui/material';
-import {
-  gridPageCountSelector,
-  gridPageSelector,
-  useGridApiContext,
-  useGridSelector,
-} from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { ChangeEvent } from 'react';
 
@@ -36,10 +30,13 @@ const Next = () => (
   </Stack>
 );
 
-const CustomPagination = () => {
-  const apiRef = useGridApiContext();
-  const page = useGridSelector(apiRef, gridPageSelector);
-  const pageCount = useGridSelector(apiRef, gridPageCountSelector);
+interface CustomPaginationProps {
+  page: number;
+  pageCount: number;
+  onPageChange: (event: ChangeEvent<unknown>, value: number) => void;
+}
+
+const CustomPagination: React.FC<CustomPaginationProps> = ({ page, pageCount, onPageChange }) => {
   return (
     <Stack
       spacing={2}
@@ -52,9 +49,9 @@ const CustomPagination = () => {
     >
       <Pagination
         shape="rounded"
-        page={page + 1}
+        page={page}
         count={pageCount}
-        onChange={(event: ChangeEvent<unknown>, value: number) => apiRef.current.setPage(value - 1)}
+        onChange={onPageChange}
         color="primary"
         sx={{
           flex: 1,

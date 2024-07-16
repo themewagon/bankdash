@@ -1,32 +1,34 @@
 import { Box, Card, Stack, Tab, Tabs, Typography } from '@mui/material';
-import { DataGrid, GridColDef, GridRowsProp, GridValidRowModel } from '@mui/x-data-grid';
+import {
+  DataGrid,
+  GridColDef,
+  GridPaginationModel,
+  GridRowsProp,
+  GridValidRowModel,
+} from '@mui/x-data-grid';
 import CustomPagination from 'components/sections/dashboard/invoice/CustomPagination';
 import NoData from 'components/sections/dashboard/invoice/NoData';
 import RenderCellDescription from 'components/sections/dashboard/invoice/RenderCellDescription';
 import RenderCellDownload from 'components/sections/dashboard/invoice/RenderCellDownload';
 import { invoiceRowData, RowData } from 'data/invoice-data';
 import { currencyFormat, dateFormatFromUTC } from 'helpers/utils';
+import { useBreakpoints } from 'providers/useBreakpoints';
 import { SyntheticEvent, useEffect, useState } from 'react';
 
 const columns: GridColDef[] = [
   {
     field: 'description',
     headerName: 'Description',
-    flex: 1,
-    minWidth: 250,
+    width: 240,
     hideable: false,
-    renderCell: (params) => {
-      return <RenderCellDescription params={params} />;
-    },
-    valueGetter: (params: GridValidRowModel) => {
-      return params.title;
-    },
+    renderCell: (params) => <RenderCellDescription params={params} />,
+    valueGetter: (params: GridValidRowModel) => params.title,
   },
   {
     field: 'transactionId',
     headerName: 'Transaction ID',
     flex: 1,
-    minWidth: 160,
+    minWidth: 150,
     hideable: false,
     renderCell: (params) => <>#{params.value}</>,
   },
@@ -34,31 +36,29 @@ const columns: GridColDef[] = [
     field: 'type',
     headerName: 'Type',
     flex: 1,
-    minWidth: 160,
+    minWidth: 150,
     hideable: false,
   },
   {
     field: 'card',
     headerName: 'Card',
+    minWidth: 150,
     flex: 1,
-    minWidth: 160,
     hideable: false,
   },
   {
     field: 'date',
     headerName: 'Date',
+    minWidth: 150,
     flex: 1,
-    minWidth: 160,
     hideable: false,
-    renderCell: (params) => {
-      return <>{dateFormatFromUTC(params.value)}</>;
-    },
+    renderCell: (params) => <>{dateFormatFromUTC(params.value)}</>,
   },
   {
     field: 'amount',
     headerName: 'Amount',
     flex: 1,
-    minWidth: 160,
+    minWidth: 150,
     hideable: false,
     renderCell: (params) => {
       const color = params.row.description.revenue === 'down' ? 'error.main' : 'success.main';
@@ -76,25 +76,44 @@ const columns: GridColDef[] = [
     headerName: 'Download',
     sortable: false,
     flex: 1,
-    minWidth: 100,
+    minWidth: 150,
     renderCell: (params) => <RenderCellDownload params={params} />,
   },
 ];
-function a11yProps(index: number) {
-  return {
-    id: `transaction-tab-${index}`,
-    'aria-controls': `transaction-tabpanel-${index}`,
-  };
-}
 
-const InvoiceOverviewTable = () => {
+const a11yProps = (index: number) => ({
+  id: `transaction-tab-${index}`,
+  'aria-controls': `transaction-tabpanel-${index}`,
+});
+
+let rowHeight = 60; // default row height
+
+const InvoiceOverviewTable: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState<GridRowsProp<RowData>>([]);
   const [value, setValue] = useState(0);
+  const { down } = useBreakpoints();
+
+  const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
+    page: 0,
+    pageSize: 5,
+  });
+
+  const isXs = down('sm');
+
+  if (isXs) {
+    rowHeight = 55;
+  } else {
+    rowHeight = 64;
+  }
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
     filterData(newValue);
+  };
+
+  const handlePaginationModelChange = (model: GridPaginationModel) => {
+    setPaginationModel(model);
   };
 
   const filterData = (tabIndex: number) => {
@@ -144,29 +163,36 @@ const InvoiceOverviewTable = () => {
         sx={{
           flexGrow: { md: 1 },
           display: { md: 'flex' },
-          //   minHeight: { xs: 400, md: 500 },
           flexDirection: { md: 'column' },
           bgcolor: 'transparent',
           overflow: 'hidden',
         }}
       >
         <DataGrid
-          rows={items}
+          rowHeight={rowHeight}
+          rows={items.slice(
+            paginationModel.page * paginationModel.pageSize,
+            (paginationModel.page + 1) * paginationModel.pageSize,
+          )}
+          rowCount={items.length}
           columns={columns}
           disableRowSelectionOnClick
-          pageSizeOptions={[5, 10, 25]}
-          initialState={{ pagination: { paginationModel: { pageSize: 5 } } }}
+          paginationMode="server"
+          paginationModel={paginationModel}
+          onPaginationModelChange={handlePaginationModelChange}
           slots={{
             noRowsOverlay: () => <NoData />,
-            footer: CustomPagination,
+            pagination: () => null, // Hide the default pagination component
           }}
           loading={loading}
           sx={{
+            px: { xs: 0, md: 3 },
             '& .MuiDataGrid-main': {
-              height: 400,
+              minHeight: 300,
             },
             '& .MuiDataGrid-virtualScroller': {
-              height: 400,
+              minHeight: 300,
+              p: 0,
             },
             '& .MuiDataGrid-columnHeader': {
               fontSize: { xs: 13, lg: 16 },
@@ -180,6 +206,15 @@ const InvoiceOverviewTable = () => {
           }}
         />
       </Card>
+      <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
+        <CustomPagination
+          page={paginationModel.page + 1}
+          pageCount={Math.ceil(items.length / paginationModel.pageSize)}
+          onPageChange={(event, value) =>
+            setPaginationModel((prev) => ({ ...prev, page: value - 1 }))
+          }
+        />
+      </Box>
     </Stack>
   );
 };

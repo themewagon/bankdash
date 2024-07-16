@@ -6,7 +6,7 @@ const PaginationComponent: Components<Omit<Theme, 'components'>>['MuiPagination'
   styleOverrides: {
     ul: ({ theme }) => ({
       position: 'relative',
-      //   '& li:has(.MuiPaginationItem-previousNext)': { width: theme.spacing(15) },
+
       '& .MuiPaginationItem-root': {
         color: theme.palette.primary.main,
       },

@@ -1,21 +1,12 @@
 import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
-import EChartsReactCore from 'echarts-for-react/lib/core';
-import React from 'react';
+import { ReactNode } from 'react';
+
 interface CardContainerProps {
   title: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  CardComponent: React.ComponentType<any>;
-  chartRef?: React.MutableRefObject<EChartsReactCore | null>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
+  children: ReactNode;
 }
 
-const CardContainer: React.FC<CardContainerProps> = ({
-  title,
-  CardComponent,
-  chartRef,
-  ...rest
-}) => {
+const CardContainer = ({ title, children }: CardContainerProps) => {
   return (
     <Stack sx={{ overflow: 'auto', height: 1, justifyContent: 'space-between' }}>
       <Box sx={{ mb: { xs: 1.5, sm: 2.5 }, mt: { xs: 1, sm: 3 } }}>
@@ -43,7 +34,7 @@ const CardContainer: React.FC<CardContainerProps> = ({
             pb: 0,
           }}
         >
-          <CardComponent chartRef={chartRef} {...rest} />
+          {children}
         </CardContent>
       </Card>
     </Stack>

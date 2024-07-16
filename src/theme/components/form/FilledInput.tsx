@@ -37,7 +37,6 @@ const FilledInputComponent: Components<Omit<Theme, 'components'>>['MuiFilledInpu
         borderTopRightRadius: theme.shape.borderRadius * 2.5,
         borderTopLeftRadius: 0,
         borderBottomRightRadius: theme.shape.borderRadius * 2.5,
-        // Add more custom styles here if needed
       },
     }),
     inputSizeSmall: ({ theme }) => ({

@@ -1,4 +1,4 @@
-import { Box, ButtonBase, Container, Grid, Link, Stack, Typography } from '@mui/material';
+import { Box, Container, Grid, Link, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 /* ----------------  Links Data  ------------------------------ */
@@ -28,18 +28,14 @@ const Footer = () => {
                   }}
                 >
                   <Typography
-                    variant="h6"
                     fontWeight="regular"
-                    sx={{ fontSize: { xs: 'body1.fontSize', md: 'h6.fontSize' } }}
+                    sx={{ fontSize: { xs: 'subtitle2.fontSize', md: 'h6.fontSize' } }}
                   >
                     &copy; {new Date().getFullYear()}, Your Company Inc.
                   </Typography>
                   <Typography
                     mb={0}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    sx={{ fontSize: { xs: 'body1.fontSize', md: 'h6.fontSize' } }}
+                    sx={{ fontSize: { xs: 'subtitle2.fontSize', md: 'h6.fontSize' } }}
                   >
                     Made with
                     <IconifyIcon icon="ri:heart-fill" sx={{ mx: 1, color: 'error.main' }} />
@@ -76,24 +72,20 @@ const Footer = () => {
                   }}
                 >
                   {data?.map((link) => (
-                    <ButtonBase
+                    <Link
+                      fontWeight="regular"
+                      color="text.secondary"
                       key={link.key}
-                      component={Link}
                       href={`${link.href}`}
                       sx={{
                         px: 2,
                         lineHeight: 1,
                         '& :hover': { color: 'primary.main' },
+                        fontSize: { xs: 'button.fontSize', md: 'body1.fontSize' },
                       }}
                     >
-                      <Typography
-                        fontWeight="regular"
-                        color="text.secondary"
-                        sx={{ fontSize: { xs: 'button.fontSize', md: 'body1.fontSize' } }}
-                      >
-                        {link.title}
-                      </Typography>
-                    </ButtonBase>
+                      {link.title}
+                    </Link>
                   ))}
                 </Stack>
               </Grid>

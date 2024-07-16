@@ -20,7 +20,7 @@ const SendAmountInput = () => {
         fontWeight="regular"
         color="text.secondary"
         whiteSpace="nowrap"
-        sx={{ typography: { xs: 'caption', md: 'body2' } }}
+        sx={{ fontSize: { xs: 'caption.fontSize', md: 'body2.fontSize' } }}
       >
         Write Amount
       </Typography>

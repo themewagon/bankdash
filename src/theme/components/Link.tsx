@@ -16,11 +16,12 @@ const LinkComponent: Components<Omit<Theme, 'components'>>['MuiLink'] = {
     root: ({ theme }) => ({
       color: theme.palette.text.primary,
       cursor: 'pointer',
-      transition: 'color 0.35s',
-      WebkitTransition: 'color 0.35s',
+      transition: 'color 0.55s',
+      WebkitTransition: 'color 0.55s',
       '&:hover': {
         color: theme.palette.text.primary,
         '& .MuiSvgIcon-root': { color: theme.palette.primary.main },
+        boxShadow: theme.shadows[0],
       },
     }),
   },

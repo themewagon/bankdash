@@ -1,6 +1,7 @@
 import { alpha, SxProps, useTheme } from '@mui/material';
 import ReactEchart from 'components/base/ReactEchart';
 import { BalanceDataType } from 'data/balance-chart';
+import 'default-passive-events';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { LineChart, LineSeriesOption } from 'echarts/charts';
 import {
@@ -115,6 +116,7 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
       ],
     };
   }, [theme, seriesData]);
+
   return (
     <ReactEchart
       echarts={echarts}

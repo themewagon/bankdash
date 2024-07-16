@@ -16,10 +16,6 @@ const InputBaseComponent: Components<Omit<Theme, 'components'>>['MuiInputBase'] 
         opacity: 1,
       },
     }),
-    // inputSizeSmall: ({ theme }) => ({
-    //   paddingTop: theme.spacing(0.75),
-    //   paddingBottom: theme.spacing(0.75),
-    // }),
     multiline: ({ theme }) => ({
       padding: `${theme.typography.pxToRem(10)} ${theme.typography.pxToRem(12)}`,
     }),

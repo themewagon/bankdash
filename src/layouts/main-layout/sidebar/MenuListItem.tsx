@@ -46,10 +46,11 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
           gap: 3.125,
           flex: 1,
           borderRadius: 2,
-          color: isActive ? 'primary.main' : 'action.disabled',
-          transition: 'color 0.5s ease',
+          color: isActive ? 'primary.main' : menuItem.available ? 'grey[700]' : 'action.disabled',
+          transition: 'color 0.35s ease',
           '&:hover, &:focus': {
             backgroundColor: 'neutral.light',
+            boxShadow: 'shadows[10]',
             color: !menuItem.available ? 'action.disabled' : 'primary.main',
             '& .MuiSvgIcon-root': {
               color: !menuItem.available ? 'action.disabled' : 'primary.main',
@@ -60,14 +61,25 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
         <ListItemIcon
           sx={{
             minWidth: 'auto',
-            color: isActive ? 'primary.main' : 'action.disabled',
+
+            color: isActive
+              ? 'primary.main'
+              : menuItem.available
+                ? 'neutral.dark'
+                : 'action.disabled',
           }}
         >
           {itemIcon}
         </ListItemIcon>
         <ListItemText
           primary={
-            <Typography sx={{ typography: { xs: 'body1', xl: 'h6' }, textTransform: 'capitalize' }}>
+            <Typography
+              sx={{
+                fontSize: { xs: 'body1.fontSize', xl: 'h6.fontSize' },
+                fontWeight: 500,
+                textTransform: 'capitalize',
+              }}
+            >
               {menuItem.title}
             </Typography>
           }

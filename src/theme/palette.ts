@@ -1,4 +1,4 @@
-import { PaletteColorOptions, PaletteOptions } from '@mui/material/styles';
+import { alpha, PaletteColorOptions, PaletteOptions } from '@mui/material/styles';
 import { blue, green, grey, magneta, orange, red } from './colors';
 
 declare module '@mui/material/styles' {
@@ -33,7 +33,7 @@ declare module '@mui/material/styles' {
 const palette: PaletteOptions = {
   action: {
     active: grey[500],
-    hover: grey[50],
+    hover: alpha(grey[600], 0.13),
     selected: grey[100],
     disabled: grey[400],
     disabledBackground: grey[200],

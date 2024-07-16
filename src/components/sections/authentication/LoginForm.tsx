@@ -1,4 +1,4 @@
-import { Button, IconButton, InputAdornment, Link, Stack, TextField } from '@mui/material';
+import { Button, Grid, IconButton, InputAdornment, Link, TextField } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useBreakpoints } from 'providers/useBreakpoints';
 import { useState } from 'react';
@@ -14,32 +14,41 @@ const LoginForm = () => {
   };
   return (
     <>
-      <Stack spacing={3} sx={{ my: 3 }}>
-        <TextField fullWidth size={upSM ? 'medium' : 'small'} name="email" label="Email address" />
-
-        <TextField
-          fullWidth
-          size={upSM ? 'medium' : 'small'}
-          name="password"
-          label="Password"
-          type={showPassword ? 'text' : 'password'}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  <IconifyIcon icon={showPassword ? 'majesticons:eye' : 'majesticons:eye-off'} />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Stack>
-      <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
-        <Link href="/authentication/forget-password" variant="subtitle2" underline="hover">
-          Forgot password?
-        </Link>
-      </Stack>
-
+      <Grid container spacing={3} sx={{ mb: 2.5 }}>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            size={upSM ? 'medium' : 'small'}
+            name="email"
+            label="Email address"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            size={upSM ? 'medium' : 'small'}
+            name="password"
+            label="Password"
+            type={showPassword ? 'text' : 'password'}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                    <IconifyIcon icon={showPassword ? 'majesticons:eye' : 'majesticons:eye-off'} />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
+      </Grid>
+      <Grid container justifyContent="flex-end" sx={{ my: 3 }}>
+        <Grid item>
+          <Link href="/authentication/forget-password" variant="subtitle2" underline="hover">
+            Forgot password?
+          </Link>
+        </Grid>
+      </Grid>
       <Button
         fullWidth
         size={upSM ? 'large' : 'medium'}

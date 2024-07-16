@@ -1,5 +1,6 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Link, Stack, Typography } from '@mui/material';
 import CreditCard, { CreditCardData } from 'components/sections/dashboard/creditCards/CreditCard';
+import { Fragment } from 'react/jsx-runtime';
 import SimpleBar from 'simplebar-react';
 
 /* ---------------------------- Credit Card Data----------------------------- */
@@ -33,7 +34,7 @@ const cardData: CardData[] = [
 
 const MyCards = () => {
   return (
-    <Box sx={{ overflow: 'auto' }}>
+    <Fragment>
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -41,20 +42,24 @@ const MyCards = () => {
         sx={{ pt: 3, pb: 2.5 }}
       >
         <Typography
-          sx={{ typography: { xs: 'body2', md: 'h6', xl: 'h3' }, fontWeight: '600 !important' }}
+          sx={{
+            fontSize: { xs: 'body2.fontSize', md: 'h6.fontSize', xl: 'h3.fontSize' },
+            fontWeight: 600,
+          }}
         >
           My Cards
         </Typography>
-        <Typography
+        <Link
           variant="h5"
+          href="#!"
           sx={{
-            typography: { xs: 'caption', md: 'body1', xl: 'h5' },
-            fontWeight: '600 !important',
+            fontSize: { xs: 'caption.fontSize', md: 'body1.fontSize', xl: 'h5.fontSize' },
+            fontWeight: 600,
             pr: 1,
           }}
         >
           See All
-        </Typography>
+        </Link>
       </Stack>
       <SimpleBar style={{ maxWidth: '100%', overflowX: 'auto' }}>
         <Stack direction="row" justifyContent="space-between" gap={4} sx={{ minWidth: 800 }}>
@@ -63,7 +68,7 @@ const MyCards = () => {
           ))}
         </Stack>
       </SimpleBar>
-    </Box>
+    </Fragment>
   );
 };
 
