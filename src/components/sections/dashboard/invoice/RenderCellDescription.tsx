@@ -10,7 +10,7 @@ type ParamsProps = {
 
 const RenderCellDescription = ({ params }: ParamsProps) => {
   return (
-    <Stack direction="row" alignItems="center" gap={1} sx={{ px: { md: 1 }, py: 2, width: 1 }}>
+    <Stack direction="row" alignItems="center" gap={1} sx={{ px: 0, py: 2, width: 1 }}>
       {params.row.description.revenue === 'down' ? (
         <Image
           src={DataGriIncrementArrow}
