@@ -206,7 +206,7 @@ const InvoiceOverviewTable: React.FC = () => {
           }}
         />
       </Card>
-      <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
+      <Box sx={{ mt: 2, display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' } }}>
         <CustomPagination
           page={paginationModel.page + 1}
           pageCount={Math.ceil(items.length / paginationModel.pageSize)}
