@@ -7,7 +7,6 @@ const TabsComponent: Components<Omit<Theme, 'components'>>['MuiTabs'] = {
     root: ({ theme }) => ({
       ...theme.typography.button,
       minHeight: theme.spacing(0),
-      boxShadow: theme.shadows[4],
     }),
     indicator: {
       height: 3,

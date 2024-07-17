@@ -27,7 +27,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
   };
   return (
     <>
-      <Box sx={{ display: 'flex', minHeight: '100vh', width: 1 }}>
+      <Box sx={{ display: 'flex' }}>
         <Sidebar drawerWidth={drawerWidth} />
         <MobileSidebar
           onDrawerClose={handleDrawerClose}
@@ -35,21 +35,24 @@ const MainLayout = ({ children }: PropsWithChildren) => {
           mobileOpen={mobileOpen}
           drawerWidth={drawerWidth.lg}
         />
+
         <Stack
           sx={{
-            width: {
-              xs: 1,
-              md: 'auto',
-            },
+            display: 'flex',
             flexGrow: 1,
-            overflow: 'hidden',
+            width: 1,
+            maxWidth: {
+              xs: 1,
+              md: `calc(100% - ${drawerWidth.md}px)`,
+              lg: `calc(100% - ${drawerWidth.lg}px)`,
+            },
+            justifyContent: 'space-between',
           }}
         >
           <MainNavbar onDrawerToggle={handleDrawerToggle} />
           <Stack
             sx={{
               backgroundColor: { xs: 'common.white', md: 'background.paper' },
-              //   backgroundColor: 'background.paper',
               px: { xs: 3.15, md: 5, xl: 7 },
               flex: 1,
               gap: 1,

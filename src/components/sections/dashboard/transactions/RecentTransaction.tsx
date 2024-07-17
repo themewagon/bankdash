@@ -11,8 +11,9 @@ const transactions = [
     icon: CreditCardIcon,
     bgcolor: 'warning.light',
     title: 'Deposit from my Card',
+    type: 'debit',
     date: '25 January 2021',
-    amount: '-$500',
+    amount: 500,
     amountColor: 'error.main',
   },
   {
@@ -20,8 +21,9 @@ const transactions = [
     icon: PaypalIcon,
     bgcolor: 'neutral.light',
     title: 'Deposit Paypal',
+    type: 'credit',
     date: '25 January 2021',
-    amount: '+$500',
+    amount: 500,
     amountColor: 'success.main',
   },
   {
@@ -29,8 +31,9 @@ const transactions = [
     icon: CoinIcon,
     bgcolor: 'success.lighter',
     title: 'Jemi Wilson',
+    type: 'credit',
     date: '25 January 2021',
-    amount: '+$500',
+    amount: 500,
     amountColor: 'success.main',
   },
 ];
@@ -49,7 +52,15 @@ const RecentTransactions = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: 3,
-                  ml: 0.75,
+                  '&:hover': {
+                    '& .title': {
+                      color: 'text.secondary',
+                    },
+                    '& .date': {
+                      color: 'neutral.main',
+                      transform: 'translateX(2px)',
+                    },
+                  },
                 }}
                 disablePadding
               >
@@ -76,15 +87,16 @@ const RecentTransactions = () => {
                 >
                   <Stack gap={1}>
                     <Typography
+                      className="title"
                       sx={{
                         color: 'primary.darker',
                         fontSize: { xs: 'subtitle1.fontSize', md: 'body2.fontSize' },
-                        '&:hover': { color: 'primary.light', transition: 'color 0.3s' },
                       }}
                     >
                       {title}
                     </Typography>
                     <Typography
+                      className="date"
                       sx={{
                         color: 'primary.light',
                         fontSize: {

@@ -8,6 +8,11 @@ const ListItemComponent: Components<Omit<Theme, 'components'>>['MuiListItem'] = 
       paddingBottom: 0,
       cursor: 'pointer',
       borderRadius: theme.shape.borderRadius * 2,
+
+      '& .MuiTypography-root': {
+        transition: 'all .25s ease',
+        WebkitTransition: 'all .25s ease',
+      },
     }),
   },
 };

@@ -30,10 +30,30 @@ import palette from 'theme/palette';
 import shadows from 'theme/shadows';
 import typography from 'theme/typography';
 
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+    xxl: true;
+  }
+}
 export const theme = createTheme({
   palette,
   typography,
   shadows: [...shadows] as Shadows,
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+      xxl: 1920,
+    },
+  },
   components: {
     MuiAppBar: AppBarComponent,
     MuiAvatar: AvatarComponent,

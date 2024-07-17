@@ -31,7 +31,6 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       '--DataGrid-containerBackground': theme.palette.background.default,
       backgroundColor: theme.palette.background.default,
       borderWidth: 1,
-
       scrollbarWidth: 'thin',
       fontWeight: theme.typography.fontWeightRegular,
       '& .MuiDataGrid-filler': {
@@ -51,7 +50,6 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       [theme.breakpoints.up('md')]: {
         background: theme.palette.common.white,
       },
-
       paddingTop: theme.spacing(0.5),
       paddingBottom: theme.spacing(0.5),
       [theme.breakpoints.up('md')]: {
@@ -65,7 +63,7 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       padding: theme.spacing(0),
       fontWeight: '800 !important',
       color: theme.palette.primary.light,
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.common.white,
       [theme.breakpoints.up('md')]: {
         backgroundColor: theme.palette.common.white,
       },
@@ -91,10 +89,10 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
     sortIcon: ({ theme }) => ({
       color: theme.palette.text.secondary,
     }),
-    virtualScroller: {
+    virtualScroller: () => ({
       display: 'flex',
       flexDirection: 'column',
-    },
+    }),
 
     cell: ({ theme }) => ({
       paddingLeft: theme.spacing(2.25),
@@ -157,6 +155,12 @@ const DataGridComponent: Components<Omit<Theme, 'components'>>['MuiDataGrid'] = 
       fontWeight: theme.typography.fontWeightExtraBold,
       minHeight: 'auto',
       borderTopStyle: 'hidden',
+    }),
+    row: ({ theme }) => ({
+      boxShadow: 'none', // color for row border
+      '&:hover': { backgroundColor: 'inherit' },
+      borderTop: '1px solid',
+      borderColor: theme.palette.neutral.light,
     }),
     selectedRowCount: { display: 'none', whiteSpace: 'nowrap' },
     columnsManagementHeader: { display: 'none', zIndex: -1 },

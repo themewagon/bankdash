@@ -152,7 +152,7 @@ const InvoiceOverviewTable: React.FC = () => {
           Recent Invoice
         </Typography>
       </Box>
-      <Box sx={{ borderBottom: 1, borderColor: 'secondary.lighter', mb: 2.5 }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'secondary.lighter', mb: 3.5 }}>
         <Tabs value={value} onChange={handleChange} aria-label="transaction tabs">
           <Tab label="All Transactions" {...a11yProps(0)} />
           <Tab label="Income" {...a11yProps(1)} />
@@ -164,8 +164,15 @@ const InvoiceOverviewTable: React.FC = () => {
           flexGrow: { md: 1 },
           display: { md: 'flex' },
           flexDirection: { md: 'column' },
-          bgcolor: 'transparent',
           overflow: 'hidden',
+          borderRadius: 6.5,
+          '&.MuiPaper-root': {
+            p: 1,
+            border: 1,
+            borderColor: 'neutral.light',
+            bgcolor: { xs: 'transparent', sm: 'white' },
+            boxShadow: (theme) => `inset 0px -1px ${theme.palette.neutral.light}`, // color for row border
+          },
         }}
       >
         <DataGrid

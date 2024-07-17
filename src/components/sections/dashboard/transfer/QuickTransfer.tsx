@@ -60,7 +60,7 @@ const QuickTransfer = () => {
       <Stack gap={4} justifyContent="space-between" sx={{ flex: 1, pl: 0.5 }}>
         <Stack direction="row" sx={{ alignItems: 'center', mt: 2 }}>
           {/** Slider main container */}
-          <Box sx={{ overflow: 'hidden' }}>
+          <Box sx={{ minWidth: 0, overflow: 'hidden', flex: 1 }}>
             <ReactSwiper swiperProps={swiperProps}>
               {ItemData.map((item, index) => (
                 <SwiperSlide key={item.id}>
