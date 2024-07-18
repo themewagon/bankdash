@@ -3,6 +3,7 @@ import CardContainer from 'components/common/CardContainter';
 import CoinIcon from 'components/icons/card-icons/CoinIcon';
 import CreditCardIcon from 'components/icons/card-icons/CreditCardIcon';
 import PaypalIcon from 'components/icons/card-icons/PaypalIcon';
+import { currencyFormat } from 'helpers/utils';
 
 /* ---------------------------- Transaction Data ---------------------------- */
 const transactions = [
@@ -45,7 +46,7 @@ const RecentTransactions = () => {
       <Card sx={{ p: { xs: 0.5, xl: 1 } }}>
         <List disablePadding sx={{ color: 'primary.main', '& > *:not(:last-child)': { mb: 2.5 } }}>
           {transactions.map(
-            ({ id, icon: IconComponent, bgcolor, title, date, amount, amountColor }) => (
+            ({ id, icon: IconComponent, bgcolor, title, date, amount, type, amountColor }) => (
               <ListItem
                 key={id}
                 sx={{
@@ -119,7 +120,7 @@ const RecentTransactions = () => {
                       },
                     }}
                   >
-                    {amount}
+                    {type === 'credit' ? '+' : '-'} {currencyFormat(amount)}
                   </Typography>
                 </Stack>
               </ListItem>
