@@ -8,6 +8,8 @@
 
 ## Demo
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/themewagon/bankdash)
+
 - [Dashboard Page](https://themewagon.github.io/bankdash/)
 - [Login Page](https://themewagon.github.io/bankdash/authentication/login)
 - [Register Page](https://themewagon.github.io/bankdash/authentication/sign-up)
