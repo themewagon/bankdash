@@ -30,7 +30,7 @@ const Dashboard = () => {
       <Grid item xs={12} lg={6} xxl={4} zIndex={1}>
         <QuickTransfer />
       </Grid>
-      <Grid item xs={12} lg={6} xxl={7} zIndex={1}>
+      <Grid item xs={12} lg={6} xxl={8} zIndex={1}>
         <BalanceHistory />
       </Grid>
 
